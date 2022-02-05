@@ -4,12 +4,12 @@ This repository contains teaching materials for lectures in the master level cou
 
 Videotaped lectures from parts of the course 2021 are available at the [Lectures in Dynamic Programming playlist](https://www.youtube.com/watch?v=SbVIgzWt8So&list=PLzkJu0O0lYnEpJNYJ4Ent_qckS0OKkYYg) on Bertel Schjernings [YouTube channel](https://www.youtube.com/user/BSchjerning)
 
-Repository will be updated as we go a along 
+Repository will be updated as we go a along
 
 ## Content
-**Part I:Theory and tools**                                                     
+**[Part I:Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)**                                                     
 
-1. Introduction to Dynamic Programming                  
+1. [Introduction to Dynamic Programming](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/01_dp_intro.ipynb)                  
 2. Numerical Integration: Quadrature and Monte Carlo    
 3. Function Approximation
 

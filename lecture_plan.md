@@ -1,0 +1,54 @@
+# Lecture plan
+Tentative lecture plan is presented below. 
+
+**[Part I:Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)**                                                      
+--
+| Week | Lecture | Day | Date      | Topic |
+|------|---------|-----|-----------|------------------------------------------------------|
+| 6    | 1       | wed | 09/Feb/22 | [Introduction to Dynamic Programming](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/01_dp_intro.ipynb)                          |
+|      | 2       | thu | 10/Feb/22 |                                                      |
+| 7    | 3       | wed | 16/Feb/22 | Numerical Integration: Quadrature and Monte Carlo    |
+|      | 4       | thu | 17/Feb/22 | Function Approximation + The Curse of Dimensionality |
+| 8    | 5       | wed | 23/Feb/22 |                                                      |
+|      | 6       | thu | 24/Feb/22 | Applications                                     
+
+**Part II: Structural estimation of dynamic discrete choice models**
+--
+| Week | Lecture | Day | Date      | Topic |
+|------|---------|-----|-----------|------------------------------------------------------|
+| 9  | 7  | wed | 02/Mar/22 | Structural estimation of discrete choice models                      |
+|    | 8  | thu | 03/Mar/22 | The Nested Fixed Point Algorithm (NFXP)                              |
+| 10 | 9  | wed | 09/Mar/22 | Constrained Optimization Approaches to Structural Estimation (MPEC) |
+|    | 10 | thu | 10/Mar/22 | Zurcher on Steroids: Residential and Work Location Choice            |
+| 11 | 11 | wed | 16/Mar/22 | Stationary Equilibrium: Equilibrium Trade in Automobile Markets      |
+|    | 12 | thu | 17/Mar/22 | Nested Pseudo Likelihood (NPL) and CCP estimators                    |
+
+**Part III: Structural estimation of models with continuous (and discrete) choices**
+--
+| Week | Lecture | Day | Date      | Topic |
+|------|---------|-----|-----------|------------------------------------------------------|
+| 12 | 13 | wed | 24/Mar/22 | The Buffer-Stock Consumption-Savings Model |
+|    | 14 | thu | 24/Mar/22 | Estimating the Buffer-Stock Model           |
+| 13 | 15 | wed | 30/Mar/22 | Discrete-Continuous Choice Models           |
+|    | 16 | thu | 31/Mar/22 | General Equilibrium                         |
+
+**Part IV: Solving and estimation of dynamic games**				
+--
+| Week | Lecture | Day | Date      | Topic |
+|------|---------|-----|-----------|------------------------------------------------------|
+| 14 | 17 | wed | 06/Apr/22 | Solving and estimating static games of incomplete information                          |
+|    | 18 | thu | 07/Apr/22 | Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML                  |
+| 15 | 19 | wed | 13/Apr/22 | Solving  and estimating directional dynamic games with multiple equilibria using RLS  |
+|    |    | thu | 14/Apr/22 | Easter: No lecture                                                                     |
+| 16 | 20 | wed | 20/Apr/22 | Solving  and estimating directional dynamic games with multiple equilibria using RLS   |
+|    |    | thu | 21/Apr/22 | No lecture                                                                             |
+
+**Part V: Work on research papers**
+--
+| Week | Lecture | Day | Date      | Topic |
+|------|---------|-----|-----------|------------------------------------------------------|
+| 17 |  | wed | 27/Apr/22 | No lecture                           |
+|    |  | thu | 28/Apr/22 | Submit project proposal              |
+| 18 |  | wed | 04/May/22 | Research Workshop I (8 AM - 12 AM)   |
+|    |  | thu | 05/May/22 | Research Workshop II (10 AM - 12 AM) |
+| 22 |  | Fri | 03/Jun/22 | **Submit term paper (10 AM)**            |
