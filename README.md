@@ -10,8 +10,9 @@ Repository will be updated as we go a along
 **[Part I:Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)**                                                     
 
 1. [Introduction to Markov Decisions Processes (MDPs) and Dynamic Programming (DP)](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/01_dp_intro.ipynb)
+1. [Numerical implementation of simple deterministic DP problem: The cake eating problem](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/02_cake_eating_example.ipynb) 
 1. [Numerical implementation of simple deterministic DP problem: The cake eating problem](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/02_cake_eating_example.ipynb)                  
-1. Numerical Integration: Quadrature and Monte Carlo    
+1. Numerical Integration: Multi-dimensional Integration: Monte Carlo 
 1. Function Approximation
 
 **Part II:Structural estimation of dynamic discrete choice models**
