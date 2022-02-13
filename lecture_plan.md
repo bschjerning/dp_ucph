@@ -7,7 +7,7 @@ Tentative lecture plan is presented below.
 |------|---------|-----|-----------|------------------------------------------------------|
 | 6    | 1       | wed | 09/Feb/22 | [Introduction to Markov Decisions Processes (MDPs) and Dynamic Programming (DP)](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/01_dp_intro.ipynb)                          |
 |      | 2       | thu | 10/Feb/22 | [Numerical implementation of simple deterministic DP problem: The cake eating problem](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/02_cake_eating_example.ipynb)  |
-| 7    | 3       | wed | 16/Feb/22 | [Deaton's model and 1d numerical nntegration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/03_deaton_1d_integration.ipynb)    |  
+| 7    | 3       | wed | 16/Feb/22 | [Deaton's model and 1d Numerical Integration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/03_deaton_1d_integration.ipynb)    |  
 |      | 4       | thu | 17/Feb/22 |  Multi-dimensional Integration: Monte Carlo and Quadrature  Methods | 
 | 8    | 5       | wed | 23/Feb/22 |  Function Approximation + The Curse of Dimensionality|
 |      | 6       | thu | 24/Feb/22 |  High dimensional DP                                    
