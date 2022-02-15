@@ -15,9 +15,9 @@ def solve_backwards(beta,W,T):
         #loop over states
         for w in range(W+1):
             c = np.arange(w+1)
-            w_c = w - c
-            V_next = Vstar_bi[w_c,t+1]
-            V_guess = np.sqrt(c)+beta*V_next
+            
+            #Fill in
+            
             Vstar_bi[w,t] = np.amax(V_guess)
             Cstar_bi[w,t] = np.argmax(V_guess)
 
