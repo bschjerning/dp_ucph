@@ -15,7 +15,7 @@ Repository will be updated as we go a along
 
 1. [Multi-dimensional Integration: Monte Carlo and Quadrature Methods](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04_multi_d_integration.ipynb)
     - [Portfolio Choice Example (part 1): Integration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04a_portfolio_integration.ipynb)
-    - [Portfolio Choice Example (part 2): Optimization](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04b_portfolio_optimal.ipynb)| 
+    - [Portfolio Choice Example (part 2): Optimization](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04b_portfolio_optimal.ipynb)
 
 1. Function Approximation
 
