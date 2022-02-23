@@ -5,3 +5,4 @@
 01_cake_eating_finite-checkpoint.ipynb
 1_theory_tools/exercises/ex_post/.ipynb_checkpoints
 1_theory_tools/exercises/ex_post/__pycache__
+*.pyc

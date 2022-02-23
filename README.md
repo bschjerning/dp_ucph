@@ -17,7 +17,8 @@ Repository will be updated as we go a along
     - [Portfolio Choice Example (part 1): Integration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04a_portfolio_integration.ipynb)
     - [Portfolio Choice Example (part 2): Optimization](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04b_portfolio_optimal.ipynb)
 
-1. Function Approximation
+1.  [Function Approximation](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/05_interpolation.ipynb)
+
 
 **Part II:Structural estimation of dynamic discrete choice models**
 

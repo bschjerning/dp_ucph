@@ -9,8 +9,8 @@ Tentative lecture plan is presented below.
 |      | 2       | thu | 10/Feb/22 | [Numerical implementation of simple deterministic DP problem: The cake eating problem](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/02_cake_eating_example.ipynb)  |
 | 7    | 3       | wed | 16/Feb/22 | [Deaton's model and 1d Numerical Integration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/03_deaton_1d_integration.ipynb)    |  
 |      | 4       | thu | 17/Feb/22 |  [Multi-dimensional Integration: Monte Carlo and Quadrature Methods](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04_multi_d_integration.ipynb)  <br> [Portfolio Choice Example (part 1): Integration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04a_portfolio_integration.ipynb)<br> [Portfolio Choice Example (part 2): Optimization](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04b_portfolio_optimal.ipynb)| 
-| 8    | 5       | wed | 23/Feb/22 |  Function Approximation + The Curse of Dimensionality|
-|      | 6       | thu | 24/Feb/22 |  High dimensional DP                                    
+| 8    | 5       | wed | 23/Feb/22 |  [Function Approximation](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/05_interpolation.ipynb)|
+|      | 6       | thu | 24/Feb/22 |  High dimensional DP and the curse of dimensionality 
 
 **Part II: Structural estimation of dynamic discrete choice models**
 --
