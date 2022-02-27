@@ -11,7 +11,7 @@ The subfolder [zurcher_matlab](https://github.com/bschjerning/dp_ucph/tree/main/
 
 ## Slides and videotaped lectures
 Previsously recorded lectures are available at the [Lectures in Dynamic Programming playlist](https://www.youtube.com/watch?v=SbVIgzWt8So&list=PLzkJu0O0lYnEpJNYJ4Ent_qckS0OKkYYg) on Bertel Schjerning's [YouTube channel](https://www.youtube.com/user/BSchjerning). Links to slides and videos below (slides are slightly updated relative to those used in the slides)
-                 
+                            
 1. The Nested Fixed Point Algorithm [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)
 [[Video 1 - solving Zurcher model]](https://youtu.be/JfFCZhBYgGw) [[Video 2 - estimating Zurcher model]](https://youtu.be/YpCptgY9vzw)                                            
 1. Constrained Optimization Approaches to Structural Estimation (MPEC) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf)
@@ -20,4 +20,4 @@ Previsously recorded lectures are available at the [Lectures in Dynamic Programm
 1. Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf)
 [[Video - NPL and CCP]](https://youtu.be/KqQaWuHvYkg)                    
 1. Zurcher on Steroids: Residential and Work Location Choice [TBA]           
-1. Stationary Equilibrium: Equilibrium Trade in Automobile Markets [TBA]      
+1. Stationary Equilibrium: Equilibrium Trade in Automobile Markets [TBA]     
