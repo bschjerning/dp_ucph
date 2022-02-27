@@ -7,7 +7,7 @@ Previsously recorded lectures are available for a subset lectures and can be fou
 Repository will be updated as we go a along
 
 ## Content
-### [Part I:Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)                                                   
+### [Part I: Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)                                                   
 
 1. Introduction to Markov Decisions Processes (MDPs) and Dynamic Programming (DP) [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/01_dp_intro.ipynb)
 1. Numerical implementation of simple deterministic DP problem: The cake eating problem [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/02_cake_eating_example.ipynb) 
@@ -22,9 +22,9 @@ Repository will be updated as we go a along
 1.  Function Approximation [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/05_interpolation.ipynb)
 
 
-### [Part II:Structural estimation of dynamic discrete choice models](https://github.com/bschjerning/dp_ucph/tree/main/2_dynamic_discrete_choice)**                 
+### [Part II: Structural estimation of dynamic discrete choice models](https://github.com/bschjerning/dp_ucph/tree/main/2_dynamic_discrete_choice)                 
 
-6. The Nested Fixed Point Algorithm [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)
+6. The Nested Fixed Point Algorithm (NFPX) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)
 [[Video 1 - solving Zurcher model]](https://youtu.be/JfFCZhBYgGw) [[Video 2 - estimating Zurcher model]](https://youtu.be/YpCptgY9vzw)                                            
 1. Constrained Optimization Approaches to Structural Estimation (MPEC) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf)
 [[Video - MPEC vs NFXP]](https://youtu.be/1uuSTLbXyd8)
@@ -34,14 +34,14 @@ Repository will be updated as we go a along
 1. Zurcher on Steroids: Residential and Work Location Choice [TBA]           
 1. Stationary Equilibrium: Equilibrium Trade in Automobile Markets [TBA]     
 
-### Part III:Structural estimation of models with continuous (and discrete) choices
+### Part III: Structural estimation of models with continuous (and discrete) choices
 
 11. The Buffer-Stock Consumption-Savings Model
 1. Estimating the Buffer-Stock Model          
 1. Discrete-Continuous Choice Models          
 1. General Equilibrium                        
 
-### Part IV:Solving and estimation of dynamic games**				
+### Part IV: Solving and estimation of dynamic games**				
 
 15. Solving and estimating static games of incomplete information                          
 1. Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML                  
