@@ -24,7 +24,7 @@ Repository will be updated as we go a along
 
 ### [Part II: Structural estimation of dynamic discrete choice models](https://github.com/bschjerning/dp_ucph/tree/main/2_dynamic_discrete_choice)                 
 
-6. The Nested Fixed Point Algorithm (NFPX) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)
+1. The Nested Fixed Point Algorithm (NFPX) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)
 [[Video 1 - solving Zurcher model]](https://youtu.be/JfFCZhBYgGw) [[Video 2 - estimating Zurcher model]](https://youtu.be/YpCptgY9vzw)                                            
 1. Constrained Optimization Approaches to Structural Estimation (MPEC) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf)
 [[Video - MPEC vs NFXP]](https://youtu.be/1uuSTLbXyd8)
@@ -36,14 +36,14 @@ Repository will be updated as we go a along
 
 ### Part III: Structural estimation of models with continuous (and discrete) choices
 
-11. The Buffer-Stock Consumption-Savings Model
+1. The Buffer-Stock Consumption-Savings Model
 1. Estimating the Buffer-Stock Model          
 1. Discrete-Continuous Choice Models          
 1. General Equilibrium                        
 
 ### Part IV: Solving and estimation of dynamic games**				
 
-15. Solving and estimating static games of incomplete information                          
+1. Solving and estimating static games of incomplete information                          
 1. Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML                  
 1. Solving  and estimating directional dynamic games with multiple equilibria using RLS  
 1. Easter: No lecture                                                                     
