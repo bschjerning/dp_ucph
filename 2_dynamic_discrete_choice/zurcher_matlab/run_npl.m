@@ -44,7 +44,7 @@ switch pk_init
 		pk0=0.99; 
 		fprintf('Initialize ccps with static p(x|keep)=%g\n', pk0)
 		pk0 = ones(mp.n,1)*pk0;    % Starting values for CCPs
-	case 1
+	case 2
 		disp('Initialize ccps with flexible logit');
 		deg=2; % degree of polynomial in flexible logit
 		x=[ones(N,1) (data.x/mp.n).^1 (data.x/mp.n).^2 (data.x/mp.n).^3 (data.x/mp.n).^4 ]; 
@@ -54,7 +54,7 @@ switch pk_init
 		pk0=1./(1+exp(xg(:,1:deg+1)*theta_flex_logit));
 		fprintf('Specifiction: logit with %d degree polynomial in mileage \n',deg);
 		fprintf('log-likelihood    = %10.3f \n',-N*fval);
-	case 2
+	case 3
 		disp('Initialize ccps with static enigne replacement model')
 		% Use static logit model to intialize NPL (i.e. with beta=0 and Kmax=1)
 		mp0=mp; mp0.beta=0;

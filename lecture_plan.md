@@ -18,8 +18,8 @@ Tentative lecture plan is presented below.
 | 9  | 7  | wed | 02/Mar/22 | [The Nested Fixed Point Algorithm (NFXP)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)|
 |    | 8  | thu | 03/Mar/22 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf) |
 | 10 | 9  | wed | 09/Mar/22 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf) |
-|    | 10 | thu | 10/Mar/22 | Zurcher on Steroids: Residential and Work Location Choice            |
-| 11 | 11 | wed | 16/Mar/22 | Stationary Equilibrium: Equilibrium Trade in Automobile Markets      |
+|    | 10 | thu | 10/Mar/22 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_eqbtrade.pdf)      |
+| 11 | 11 | wed | 16/Mar/22 | Continued      |
 |    | 12 | thu | 17/Mar/22 | Buffer                  |
 
 ## Part III: Structural estimation of models with continuous (and discrete) choices

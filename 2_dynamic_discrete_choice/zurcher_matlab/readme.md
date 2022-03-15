@@ -28,22 +28,24 @@ By Fedor Iskhakov, Bertel Schjerning, and John Rust
 
 - [run_sparsity.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/run_sparsity.m): Code that displays sparsity patterns for Hessian and Jacobian constraints (important for MPEC), the transition matrices and the derivatives of the Bellman operator. 
 
+- [run_npl.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/run_npl.m): Estimates Zurcher's model using and Rust's data using NPL and CCP type estimators.
+
 - [run_bbl.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/run_bbl.m): Demonstrates (loosely) BBL method using Rust's engine replacement model 
 
 - [run_msm.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/run_msm.m): Demonstrates (loosely) NFXP using Method of Simulated Moments criterion for Rust's engine replacement model. Simple 2d illustration of objective function and grid search for replacement and operating cost parameters.
 
 **MATLAB classses**
-- zurcher.m: Model class that contains all primitives of the engine replacement model of Harold Zuercher (state transition matrices, utility functions, Bellman equations, likelihood function, simulator and equilibrium calculator). 
+- [zurcher.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/zurcher.m): Model class that contains all primitives of the engine replacement model of Harold Zuercher (state transition matrices, utility functions, Bellman equations, likelihood function, simulator and equilibrium calculator). 
 
-- dpsolver.m: Solver for finding fixed point of bellman equations using a combination of Succesive Approximations (SA) and Newton-Kantorovich (NK) iterations.  
+- [dpsolver.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/dpsolver.m): Solver for finding fixed point of bellman equations using a combination of Succesive Approximations (SA) and Newton-Kantorovich (NK) iterations.  
 
-- nfxp.m: Collects functions necessary to solve and estimate Zurcher's model using the Nested Fixed point algorithm, NFXP. 
+- [nfxp.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/nfxp.m): Collects functions necessary to solve and estimate Zurcher's model using the Nested Fixed point algorithm, NFXP. 
 
-- mpec.m: Collects functions necessary to solve and estimate Zurcher's model using Mathematical Programming with Equilibrium Constrains (MPEC). 
+- [mpec.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/mpec.m): Collects functions necessary to solve and estimate Zurcher's model using Mathematical Programming with Equilibrium Constrains (MPEC). 
 
-- npl.m: Collects functions necessary to solve and estimate Zurcher's model using Nested Pseudo Likelihood (NPL). 
+- [npl.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/npl.m): Collects functions necessary to solve and estimate Zurcher's model using Nested Pseudo Likelihood (NPL). 
 
-- msm.m: Collects functions necessary to solve and estimate Zurcher's model using Methodf of Simulated Moments (msm). 
+- [msm.m](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/zurcher_matlab/msm.m): Collects functions necessary to solve and estimate Zurcher's model using Methodf of Simulated Moments (msm). 
 
 
 
