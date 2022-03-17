@@ -16,11 +16,11 @@ Tentative lecture plan is presented below.
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
 | 9  | 7  | wed | 02/Mar/22 | [The Nested Fixed Point Algorithm (NFXP)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)|
-|    | 8  | thu | 03/Mar/22 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf) |
-| 10 | 9  | wed | 09/Mar/22 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf) |
-|    | 10 | thu | 10/Mar/22 | Zurcher on Steroids: Residential and Work Location Choice            |
-| 11 | 11 | wed | 16/Mar/22 | Stationary Equilibrium: Equilibrium Trade in Automobile Markets      |
-|    | 12 | thu | 17/Mar/22 | Buffer                  |
+|    | 8  | thu | 03/Mar/22 | Continued |
+| 10 | 9  | wed | 09/Mar/22 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf)|
+|    | 10 | thu | 10/Mar/22 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf)  |
+| 11 | 11 | wed | 16/Mar/22 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)         |
+|    | 12 | thu | 17/Mar/22 | Continued             |
 
 ## Part III: Structural estimation of models with continuous (and discrete) choices
 | Week | Lecture | Day | Date      | Topic |
@@ -47,4 +47,4 @@ Tentative lecture plan is presented below.
 |    |  | thu | 28/Apr/22 | Submit project proposal              |
 | 18 |  | wed | 04/May/22 | Research Workshop I (8 AM - 12 AM)   |
 |    |  | thu | 05/May/22 | Research Workshop II (10 AM - 12 AM) |
-| 22 |  | Fri | 03/Jun/22 | **Submit term paper (10 AM)**            |
+| 22 |  | Fri | 03/Jun/22 | **Submit term paper (10 AM)**        |

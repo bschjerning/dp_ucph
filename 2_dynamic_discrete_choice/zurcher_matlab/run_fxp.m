@@ -4,13 +4,14 @@ clc
 
 % algorithm switch 
 algorithm = 'sa'; % sa or poly
+%algorithm = 'poly'; % sa or poly
 
 % Read default parameters in to struct mp 
 mp.n=90;
 
 %% Parameters for solution algorithm (mp.ap used in dpsolver.m)
 mp.ap.printfxp=2;	% (0= no output), (compressed output), (2= detailed iteraion output)
-mp.ap.sa_min=1000;	% Set minimum number of contraction steps (successive approximations)
+mp.ap.sa_max=1000;	% Set minimum number of contraction steps (successive approximations)
 
 mp.beta=0.9999;
 mp.bellman_type='ev';  	% bellman in expected value ('ev') or ('iv') integraded value function space  

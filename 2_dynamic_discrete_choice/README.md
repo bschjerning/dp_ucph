@@ -18,6 +18,5 @@ Previsously recorded lectures are available at the [Lectures in Dynamic Programm
 [[Video - MPEC vs NFXP]](https://youtu.be/1uuSTLbXyd8)
 
 1. Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf)
-[[Video - NPL and CCP]](https://youtu.be/KqQaWuHvYkg)                    
-1. Zurcher on Steroids: Residential and Work Location Choice [TBA]           
-1. Stationary Equilibrium: Equilibrium Trade in Automobile Markets [TBA]     
+[[Video - NPL and CCP]](https://youtu.be/KqQaWuHvYkg)                           
+1. Stationary Equilibrium: Equilibrium Trade in Automobile Markets [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)
