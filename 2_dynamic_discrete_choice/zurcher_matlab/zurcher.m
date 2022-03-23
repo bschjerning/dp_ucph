@@ -392,7 +392,7 @@ methods (Static)
       % ergodic.m: finds the invariant distribution for 
       % an NxN Markov transition probability
       n=size(p,1);
-      if n ~= size(p,1);
+      if n ~= size(p,2);
         fprint('Error: p must be a square matrix\n');
         ed=NaN;
       else
