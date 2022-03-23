@@ -16,6 +16,6 @@ Three models are solved using these methods:
 - The code also contains the polyline.m class which presents a set of tools for working with linearly interpolated functions, including the upper envelope algorithm. The code also contains the easy start implementation of EGM algorithm in just 13 lines of code.
 
 **References**
-Christopher D. Carroll "[The method of endogenous gridpoints for solving dynamic stochastic optimization problems] (http://www.sciencedirect.com/science/article/pii/S0165176505003368)" (Economics Letters, 2006)
-Iskhakov, Jorgensen, Rust and Schjerning "[The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or without) Taste Shocks] (http://onlinelibrary.wiley.com/doi/10.3982/QE643/full)" (Quantitative Economics, 2017)
+- Christopher D. Carroll "[The method of endogenous gridpoints for solving dynamic stochastic optimization problems] (http://www.sciencedirect.com/science/article/pii/S0165176505003368)" (Economics Letters, 2006)
+- Iskhakov, Jorgensen, Rust and Schjerning "[The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or without) Taste Shocks] (http://onlinelibrary.wiley.com/doi/10.3982/QE643/full)" (Quantitative Economics, 2017)
 
