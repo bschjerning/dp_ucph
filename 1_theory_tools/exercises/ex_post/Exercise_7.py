@@ -8,7 +8,7 @@ def setup():
     class par: pass
     par.beta = 0.90
     par.rho = 0.5
-    par.R = 1.0/par.beta
+    par.R = 1.0
     par.sigma = 0.2
     par.mu = 0
     par.W = 10
