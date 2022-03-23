@@ -25,10 +25,10 @@ Tentative lecture plan is presented below.
 ## Part III: Structural estimation of models with continuous (and discrete) choices
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 12 | 13 | wed | 24/Mar/22 | The Buffer-Stock Consumption-Savings Model |
-|    | 14 | thu | 24/Mar/22 | Estimating the Buffer-Stock Model           |
-| 13 | 15 | wed | 30/Mar/22 | Discrete-Continuous Choice Models           |
-|    | 16 | thu | 31/Mar/22 | General Equilibrium                         |
+| 12 | 13 | wed | 24/Mar/22 | The Euler Equation, Time iterations and EGM|
+|    | 14 | thu | 24/Mar/22 | Discrete-Continuous Choice Models  (DC-EGM)     |
+| 13 | 15 | wed | 30/Mar/22 | Estimating the Buffer-Stock Model         |
+|    | 16 | thu | 31/Mar/22 |                                           |
 
 ## Part IV: Solving and estimation of dynamic games	
 | Week | Lecture | Day | Date      | Topic |
