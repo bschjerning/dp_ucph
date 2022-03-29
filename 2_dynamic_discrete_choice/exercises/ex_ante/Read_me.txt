@@ -9,4 +9,6 @@ Estimate_NFXP.py: Functions for estimating the zucher model with NFXP
 Alternative_specifications: Functions which handle alternative specifications, which are asked for in the problem sets
 
 ipynb-files:
-Exercise1: Runs the first exercise
+01_NFXP: Runs the first exercise
+02_NFXP_simulate: Runs the second exercise
+03_NFXP_equilibrium: Runs the third exercise
