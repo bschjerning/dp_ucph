@@ -25,10 +25,10 @@ Tentative lecture plan is presented below.
 ## Part III: Structural estimation of models with continuous (and discrete) choices
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 12 | 13 | wed | 24/Mar/22 | The Euler Equation, Time iterations and EGM|
-|    | 14 | thu | 24/Mar/22 | Discrete-Continuous Choice Models  (DC-EGM)     |
-| 13 | 15 | wed | 30/Mar/22 | Estimating the Buffer-Stock Model         |
-|    | 16 | thu | 31/Mar/22 |                                           |
+| 12 | 13 | wed | 24/Mar/22 | [The Euler Equation, Time iterations and EGM](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/1_euler_egm.ipynb) |
+|    | 14 | thu | 24/Mar/22 | [Discrete-Continuous Choice Models  (DC-EGM)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/2_dcegm.pdf) | 
+| 13 | 15 | wed | 30/Mar/22 | [More on Stuctural Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/3_struct_est.pdf) [simple code example of SMD]()  |
+|    | 16 | thu | 31/Mar/22 | [Empirical application of DC-EGM (Iskhakov and Keane, JoE 2021)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)|
 
 ## Part IV: Solving and estimation of dynamic games	
 | Week | Lecture | Day | Date      | Topic |
