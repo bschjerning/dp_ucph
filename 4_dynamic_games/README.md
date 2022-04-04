@@ -1,9 +1,8 @@
 # Part IV: Solving and estimation of dynamic games
 ### Content
-
-1. Solving and estimating static games of incomplete information [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/1_StaticGames.pdf) [[Code]](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games/codeEstimStaticGames) 
+1. Solving and estimating static games of incomplete information [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/1_StaticGames.pdf) [[[MATLAB code]](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games/codeEstimStaticGames) [[Python code]](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games/code_sgame_python)
 1. Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/2_DynamicGames.pdf) 
-1. Solving and estimating directional dynamic games with multiple equilibria using RLS [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/3_rls.pdf) 
+1. Solving and estimating directional dynamic games with multiple equilibria using RLS [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/3_rls.pdf) [[Matlab code and exercise for RLS]](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games/codeRLS)
 1. Solving and estimating directional dynamic games with multiple equilibria using RLS [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/4_nrls.pdf) 
 
 ### Key References

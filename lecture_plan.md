@@ -22,7 +22,7 @@ Tentative lecture plan is presented below.
 | 11 | 11 | wed | 16/Mar/22 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)         |
 |    | 12 | thu | 17/Mar/22 | Continued             |
 
-## Part III: Structural estimation of models with continuous (and discrete) choices
+## [Part III: Structural estimation of models with continuous (and discrete) choices](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
 | 12 | 13 | wed | 24/Mar/22 | [The Euler Equation, Time iterations and EGM](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/1_euler_egm.ipynb) |
@@ -30,14 +30,14 @@ Tentative lecture plan is presented below.
 | 13 | 15 | wed | 30/Mar/22 | [More on Stuctural Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/3_struct_est.pdf) [simple code example of SMD]()  |
 |    | 16 | thu | 31/Mar/22 | [Empirical application of DC-EGM (Iskhakov and Keane, JoE 2021)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)|
 
-## Part IV: Solving and estimation of dynamic games	
+## [Part IV: Solving and estimation of dynamic games](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games)	
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 14 | 17 | wed | 06/Apr/22 | Solving and estimating static games of incomplete information                          |
-|    | 18 | thu | 07/Apr/22 | Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML                  |
-| 15 | 19 | wed | 13/Apr/22 | Solving  and estimating directional dynamic games with multiple equilibria using RLS  |
+| 14 | 17 | wed | 06/Apr/22 | [Solving and estimating static games of incomplete information](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/1_StaticGames.pdf)                          |
+|    | 18 | thu | 07/Apr/22 | [Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/2_DynamicGames.pdf)                  |
+| 15 | 19 | wed | 13/Apr/22 | [Solving  and estimating directional dynamic games with multiple equilibria using RLS](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/3_rls.pdf)  |
 |    |    | thu | 14/Apr/22 | Easter: No lecture                                                                     |
-| 16 | 20 | wed | 20/Apr/22 | Solving  and estimating directional dynamic games with multiple equilibria using RLS   |
+| 16 | 20 | wed | 20/Apr/22 | [Solving  and estimating directional dynamic games with multiple equilibria using RLS](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/4_nrls.pdf)   |
 |    |    | thu | 21/Apr/22 | No lecture                                                                             |
 
 ## Part V: Work on research papers
