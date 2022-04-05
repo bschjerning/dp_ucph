@@ -16,7 +16,7 @@ end
 
 %% Solve the model with EGM
 if 0
-  K=1;
+  K=100;
   fprintf('\nSolving %s with EGM %d times:\n',m.label,K)
   tic
   for i=1:K
@@ -49,9 +49,9 @@ if 0
   m.solve_egm;
   m.sim;
   m.plot('sim consumption');
-  m.solve_vfi;
-  m.sim;
-  m.plot('sim consumption');
+%  m.solve_vfi;
+%  m.sim;
+%  m.plot('sim consumption');
 end
 %%
 
@@ -70,7 +70,7 @@ if 1
   m2.ngridm=500;
   m2.df=1/(1+m2.r); %flat consumption hopefully
   m2.sigma=0;
-  m2.lambda=0.1; %no EV taste shocks
+  m2.lambda=eps; %no EV taste shocks
   m2.nsims=2;
   m2.init=[5 20];
   tic

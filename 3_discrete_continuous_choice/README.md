@@ -4,8 +4,10 @@ In this series of lectures on dynamic discrete-continuous choice models we will 
 
 1. The Euler Equation, Time iterations and EGM [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/1_euler_egm.ipynb) 
 1. Discrete-Continuous Choice Models  (DC-EGM) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/2_dcegm.pdf)
+1. More on Stuctural Estimation: [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/3_struct_est.pdf)         
+1. Empirical application of DC-EGM (Iskhakov and Keane, JoE 2021): [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)              
 
-1. Stuctural Estimation: TBA                  
+
 
 ###  DC-EGM: Fedor Iskhakov's MATLAB code for solving lifecycle models of consumption and savings, with additional discrete choices.
 This folder [dc_egm_matlab](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice/dc_egm_matlab) contains a copy of the code developed by Fedor Ishkakov, Australian National University, that implements the EGM and DC-EGM algorithms. I will use the code for illustrations during the lecture on DC-EGM. 
@@ -24,5 +26,6 @@ Three models are solved using these methods:
 - The code also contains the polyline.m class which presents a set of tools for working with linearly interpolated functions, including the upper envelope algorithm. The code also contains the easy start implementation of EGM algorithm in just 13 lines of code.
 
 ### Key References
-- Christopher D. Carroll "[The method of endogenous gridpoints for solving dynamic stochastic optimization problems] (http://www.sciencedirect.com/science/article/pii/S0165176505003368)" (Economics Letters, 2006)
-- Iskhakov, Jorgensen, Rust and Schjerning "[The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or without) Taste Shocks] (http://onlinelibrary.wiley.com/doi/10.3982/QE643/full)" (Quantitative Economics, 2017)
+- Christopher D. Carroll "[The method of endogenous gridpoints for solving dynamic stochastic optimization problems](http://www.sciencedirect.com/science/article/pii/S0165176505003368)" (Economics Letters, 2006)
+- Iskhakov, Jorgensen, Rust and Schjerning "[The Endogenous Grid Method for Discrete-Continuous Dynamic Choice Models with (or without) Taste Shocks](http://onlinelibrary.wiley.com/doi/10.3982/QE643/full)" (Quantitative Economics, 2017)
+- Iskhakov and Keane "[Effects of taxes and safety net pensions on life-cycle labor supply, savings and human capital: The case of Australia](https://doi.org/10.1016/j.jeconom.2020.01.023)" (Journal of Econometrics, 2021)
