@@ -103,7 +103,7 @@ def simulate (par,sol):
 
         # Consumption of discrete choice
         interpc0 = interpolate.interp1d(par.grid_M,sol.C[0,:,t], bounds_error=False, fill_value = "extrapolate")
-        interpc1 = interpolate.interp1d(par.grid_M,sol.C[0,:,t], bounds_error=False, fill_value = "extrapolate")
+        interpc1 = interpolate.interp1d(par.grid_M,sol.C[1,:,t], bounds_error=False, fill_value = "extrapolate")
         
         # Interpreted values for consumption
         C0 = interpc0(sim.M[:,t]) 
