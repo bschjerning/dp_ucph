@@ -9,7 +9,8 @@ global output;
 
 % multible equilibria at the the true value of parameters
 alpha=5; beta=-11; x_a=0.52; x_b=0.22; 
-% beta=-11;
+% x_a=1; x_b=1; 
+beta=-10;
 % scale iid. extreme value error
 sigma=1;
 x_a=x_a/sigma;

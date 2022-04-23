@@ -7,7 +7,7 @@ alpha=5;
 beta=-11;
 x_a=0.52;
 x_b=0.22;
-T=1000 % number of time game is played
+T=1000 % number of times game is played
 
 for esr=1:3;  % loop over eqiulibrium to be selected in the data
 fprintf('Data generated from equilirbrium %d\n', esr);
@@ -17,11 +17,11 @@ fprintf('Data generated from equilirbrium %d\n', esr);
 % then the first feasible equilibrium is picked, i.e. min(neqb,esr).
 % Equilibria are sorted after ascending in p_a 
 
-nMC=1000;  % number of MC reps
+nMC=100;  % number of MC reps
 
 % estimator='pml2step';
-estimator='npl';
-% estimator='mle';
+% estimator='npl';
+estimator='mle';
 % estimator='mpec';
 
 % Best response functions, 
