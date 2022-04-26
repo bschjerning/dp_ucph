@@ -10,8 +10,7 @@ def maximum_likelihood(model, est_par, theta0, data,do_stderr):
     assert (len(est_par)==len(theta0)), 'Number of parameters and initial values do not match'
     
     #Estimation
-    obj_fun = lambda x: -log_likelihood(x,model,est_par,data)
-    res = optimize.minimize(obj_fun,theta0)
+    # Fill in
 
     return res
 
@@ -36,7 +35,7 @@ def log_likelihood(theta, model, est_par, data):
     error = data.logC -np.log(C_predict)
 
     # Calculate log-likelihood
-    # Fill in 
+    # Fill in
     
     return np.mean(log_lik_vec) 
 
@@ -61,7 +60,7 @@ def method_simulated_moments(model,est_par,theta0,data):
     data.moments = calc_moments(model.par,data)
 
     # Estimate
-    obj_fun = lambda x: sum_squared_diff_moments(x,model,est_par,data)
+    # Fill in
     res = optimize.minimize(obj_fun,theta0, method='BFGS')
 
     return res
@@ -97,4 +96,4 @@ def sum_squared_diff_moments(theta,model,est_par,data):
     
     diff = (moments-data.moments).reshape(moments.size,1)
 
-    return (diff.T@weight_mat_inv @diff).ravel()
+    return (# Fill in).ravel()
