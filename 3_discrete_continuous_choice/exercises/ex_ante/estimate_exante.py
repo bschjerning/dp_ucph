@@ -2,7 +2,7 @@
 import numpy as np
 import scipy.optimize as optimize
 import tools
-import model
+import model_exante as model
 
 def maximum_likelihood(model, est_par, theta0, data,do_stderr):
     
@@ -36,8 +36,7 @@ def log_likelihood(theta, model, est_par, data):
     error = data.logC -np.log(C_predict)
 
     # Calculate log-likelihood
-    log_lik_vec = - 0.5*np.log(2*np.pi*par.sigma_eta**2)
-    log_lik_vec += (- (error**2)/(2*par.sigma_eta**2) )
+    # Fill in 
     
     return np.mean(log_lik_vec) 
 
