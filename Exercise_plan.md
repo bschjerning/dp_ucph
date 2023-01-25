@@ -1,5 +1,4 @@
-# Lecture plan 2023
-Tentative lecture plan is presented below. 
+# Exercise plan 2023
 
 ## [Part I: Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)                                                      
 | Week |TA |  Exercise | Topic | New Method| Additional files |
