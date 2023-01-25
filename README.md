@@ -2,9 +2,14 @@
 
 This repository contains teaching materials for lectures in the master level course in **Dynamic Programming and Structural Econometrics** that I teach at the Economics program at University of Copenhagen. 
 
-Previsously recorded lectures are available for a subset lectures and can be found under the [Lectures in Dynamic Programming playlist](https://www.youtube.com/watch?v=SbVIgzWt8So&list=PLzkJu0O0lYnEpJNYJ4Ent_qckS0OKkYYg) on Bertel Schjerning's [YouTube channel](https://www.youtube.com/user/BSchjerning). Where available, links to videos below (note that slides may be updated relative to those used in the slides). 
+Previsously recorded lectures are available for a subset lectures and can be found under the [Lectures in Dynamic Programming playlist](https://www.youtube.com/watch?v=SbVIgzWt8So&list=PLzkJu0O0lYnEpJNYJ4Ent_qckS0OKkYYg) on Bertel Schjerning's [YouTube channel](https://www.youtube.com/user/BSchjerning). Where available, links to videos below (note that slides may be updated relative to those used in the slides).
 
-Repository will be updated as we go a along
+
+
+
+Plans for [lectures](https://github.com/bschjerning/dp_ucph/blob/main/lecture_plan.md) and [exercises](https://github.com/bschjerning/dp_ucph/blob/main/Exercise_plan.md) can be found at this page. Changes might occur.  
+
+Repository will be updated as we go a along.
 
 ## Content
 ### [Part I: Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)                                                   
