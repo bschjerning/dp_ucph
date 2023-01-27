@@ -34,9 +34,9 @@ Tentative lecture plan is presented below.
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
 | 14 | 17 | wed | 05/Apr/23 | [Solving and estimating static games of incomplete information](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/1_StaticGames.pdf)                          |
-|    | 18 | thu | 06/Apr/23 | [Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/2_DynamicGames.pdf)                  |
-| 15 | 19 | wed | 12/Apr/23 | [Solving  and estimating directional dynamic games with multiple equilibria using RLS](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/3_rls.pdf)  |
-|    |    | thu | 13/Apr/23 | Easter: No lecture                                                                     |
+|    | 18 | thu | 06/Apr/23 | Easter: No lecture               |
+| 15 | 19 | wed | 12/Apr/23 |  [Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/2_DynamicGames.pdf)   |
+|    |    | thu | 13/Apr/23 |  [Solving  and estimating directional dynamic games with multiple equilibria using RLS](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/3_rls.pdf)                                                                     |
 | 16 | 20 | wed | 19/Apr/23 | [Solving  and estimating directional dynamic games with multiple equilibria using RLS](https://github.com/bschjerning/dp_ucph/blob/main/4_dynamic_games/4_nrls.pdf)   |
 |    |    | thu | 20/Apr/23 | No lecture                                                                             |
 
