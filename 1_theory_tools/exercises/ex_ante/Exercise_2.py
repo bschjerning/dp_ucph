@@ -2,7 +2,6 @@
 import numpy as np
 
 def solve_VFI(par):
-    grid_W = par.grid_W
     Cstar = np.zeros([par.W+1])
     
     # Parameters for VFI
@@ -26,5 +25,6 @@ def solve_VFI(par):
     class sol: pass
     sol.C = Cstar
     sol.V = V_now
+    sol.it = it
 
     return sol
