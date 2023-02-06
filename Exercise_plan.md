@@ -29,9 +29,9 @@
 ## [Part 3: Discrete-Continuous Choice](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)                                                      
 | Week | TA |Exercise | Topic | New Method| Additional files |
 |------| ---|----------|-------|-------|------------------|
-| 16   |  Jacob | 1        |    [Discrete-continuous choice](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/01_discrete_continous_choice.ipynb)|  Discrete-continuous choice     |[Exercise_1.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_1.py)     |
-|      | | 2        | [Deaton model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/02_time_iteration.ipynb)   | Time iterations | [Exercise_2.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_2.py)      |
-| 17   |   Adam |3        | [Buffer-stock model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb)   | EGM      | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py)                 |
+|16      | Jacob | 1        | [Deaton model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/01_time_iteration.ipynb)   | Time iterations | [Exercise_1.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_1.py)      |
+|      | | 2        | Deaton model - EGM (Notebook TBA) | EGM | TBA |
+| 17   |   Adam |3        | [Buffer-stock model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb)   |       | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py)                 |
 |      | | 4        | [Buffer-stock model - Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb)      |Estimating continuous choice with MLE and MSM       |   [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py), [estimate_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/estimate_exante.py)               |
 | 18   |  Jacob | 5        | [Retirement model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/05_dc_egm.ipynb)   | DC-EGM | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_dc_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_dc_exante.py)                 |
 
@@ -39,7 +39,7 @@
 
 
 
-
+<!-- | 16   |  Jacob | 1        |    [Discrete-continuous choice](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/01_discrete_continous_choice.ipynb)|  Discrete-continuous choice     |[Exercise_1.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_1.py)     | -->
 
 
 
