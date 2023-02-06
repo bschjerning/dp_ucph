@@ -11,4 +11,5 @@
 1_euler_egm-checkpoint.ipynb
 3_discrete_continuous_choice/smd/.ipynb_checkpoints
 4_dynamic_games/z_private_repo
-*.ipynb
+*.DS_Store
+*-checkpoint.ipynb
