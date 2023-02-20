@@ -28,11 +28,10 @@ def solve_consumption_deaton(par):
             if t<par.T-1:
                 for s in range(par.num_shocks):
                     # fill in
-                    
-                    
-                    
-                    
-                    
+                    # Hint: Same procedure as in Exercise_4
+                   
+
+                   
                     
             V_guess = util(c,par)+par.beta*EV_next
             index = np.argmax(V_guess)
