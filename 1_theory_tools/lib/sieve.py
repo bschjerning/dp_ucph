@@ -154,7 +154,10 @@ class sieve():
         B=[]
         k=z.shape[1]
         for j in range(k): 
-            Bj=sieve.basis_j(z[:,j], deg[j], btype[j], knots[:,j])
+            if (knots is None):   
+                Bj=sieve.basis_j(z[:,j], deg[j], btype[j])
+            else:
+                Bj=sieve.basis_j(z[:,j], deg[j], btype[j], knots[:,j])
             B.append(Bj)
         return sieve.tensor(B) 
             
