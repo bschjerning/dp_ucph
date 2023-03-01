@@ -16,11 +16,11 @@ Tentative lecture plan is presented below.
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
 | 9  | 7  | wed | 01/Mar/23 | [The Nested Fixed Point Algorithm (NFXP)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)|
-|    | 8  | thu | 02/Mar/23 | Continued |
-| 10 | 9  | wed | 08/Mar/23 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf)|
-|    | 10 | thu | 09/Mar/23 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf)  |
-| 11 | 11 | wed | 15/Mar/23 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)         |
-|    | 12 | thu | 16/Mar/23 | Continued             |
+|    | 8  | thu | 02/Mar/23 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf) |
+| 10 | 9  | wed | 08/Mar/23 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf) |
+|    | 10 | thu | 09/Mar/23 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)     |
+| 11 | 11 | wed | 15/Mar/23 | TBA    |
+|    | 12 | thu | 16/Mar/23 | TBA             |
 
 ## [Part III: Structural estimation of models with continuous (and discrete) choices](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)
 | Week | Lecture | Day | Date      | Topic |
