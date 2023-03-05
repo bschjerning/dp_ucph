@@ -30,17 +30,18 @@ class zurcher():
         self.create_grid()
 
     def create_grid(self):
-        self.grid = np.arange(0,self.n) 
-        self.cost = 0.001*self.c*self.grid  
-        self.state_transition()
+        self.grid = np.arange(0,self.n) # milage grid
+        self.cost = 0.001*self.c*self.grid  # cost function
+        self.state_transition() 
 
     def state_transition(self):
         '''Compute transition probability matrixes conditional on choice'''
-        p = np.append(self.p,1-np.sum(self.p))
-        P1 = np.zeros((self.n,self.n))
+        p = np.append(self.p,1-np.sum(self.p)) # Get transition probabilities
+        P1 = np.zeros((self.n,self.n)) # Initialize transition matrix
+        # Loop over rows
         for i in range(self.n):
+            # Check if p vector fits entirely
             if i <= self.n-len(p):
-                # lines where p vector fits entirely
                 P1[i][i:i+len(p)]=p
             else:
                 P1[i][i:] = p[:self.n-len(p)-i]
@@ -48,39 +49,42 @@ class zurcher():
 
         # conditional on d=1, replacement
         P2 = np.zeros((self.n,self.n))
+        # Loop over rows
         for i in range(self.n):
             P2[i][:len(p)]=p
         self.P1 = P1
         self.P2 = P2
 
     def bellman(self,ev0=np.zeros(1),output=1):
+        '''Compute Bellman operator, choice probability and Frechet derivative'''
 
         # Value of options:
-        value_keep = -self.cost + self.beta*ev0
-        value_replace = -self.RC - self.cost[0] + self.beta*ev0[0]  
+        value_keep = -self.cost + self.beta*ev0 # nx1 matrix
+        value_replace = -self.RC - self.cost[0] + self.beta*ev0[0]   # 1x1
 
         # recenter Bellman by subtracting max(VK, VR)
         maxV = np.maximum(value_keep,value_replace) 
-        logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))  # This is the Logsum 
-        ev1 = self.P1@logsum
+        logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))  # Compute logsum to handle expectation over unobserved states
+        ev1 = self.P1@logsum # Compute expectation over state transition
 
         if output == 1:
             return ev1
 
-        # Compute choice probability
+        # Compute choice probability of keep
         pk = 1/(1+np.exp(value_replace-value_keep))       
         
         if output == 2:
             return ev1, pk
 
         # Compute Frechet derivative
-        dev1 =self.dbellman(pk)
+        dev1 = self.dbellman(pk)
 
         return ev1, pk, dev1
 
     def dbellman(self,pk): 
+        '''Compute Frechet derivative of Bellman operator'''
         dev1 = self.beta * self.P1 * pk.transpose()
-        dev1[:,0] += self.beta * self.P1 @ (1-pk)
+        dev1[:,0] += self.beta * self.P1 @ (1-pk) 
         
         return dev1
 
