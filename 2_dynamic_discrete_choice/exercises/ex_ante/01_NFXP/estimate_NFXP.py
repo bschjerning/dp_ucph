@@ -37,14 +37,14 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0):
         # Update parameters
         model=updatepar(model,pnames,res.x)
 
-    # Converged
+    # Converged: "trust-ncg tends to be very conservative about convergence, and will often return status 2 even when the solution is good."
     converged   =   (res.status == 2 or res.status ==0)
 
     # Compute Variance-Covaiance matrix
     h = hes(res.x, model, solver,data, pnames) # Hessian
-    Avar = np.linalg.inv(h*samplesize)
+    Avar = np.linalg.inv(h*samplesize) # Variance-Covariance matrix from information matrix equality
 
-    theta_hat = res.x
+    theta_hat = res.x # unpack estimates
     
     return model, res, pnames, theta_hat, Avar, converged
 
@@ -67,17 +67,17 @@ def ll(theta, model, solver,data, pnames, out=1): # out=1 solve optimization
     ev, pk, dev = solver.poly(model.bellman, V0=ev0 ,beta=model.beta, output=3)
 
     # Evaluate likelihood function
-    lik_pr = pk[x]    
-    choice_prob = lik_pr * (1 - d) + (1-lik_pr) * d # get probability given observed decision
+    lik_pr = pk[x] # Get probability of keeping given observed state    
+    choice_prob = lik_pr * (1 - d) + (1-lik_pr) * d # get probability of making observed choice
     log_lik = np.log(choice_prob)  # Compute log-likelihood-contributions
     
     # add on log like for mileage process
-    if theta.size>2:
-        p = np.append(model.p,1-np.sum(model.p))
+    if theta.size>2: # theta > 2 if there are parameters for p
+        p = np.append(model.p,1-np.sum(model.p)) # Add residual probability to p
         if any(p<=0):
-            log_lik -= 100000*p[dx1]
+            log_lik -= 100000*p[dx1] # Penalize if p is negative
         else:
-            log_lik += np.log(p[dx1])
+            log_lik += np.log(p[dx1]) # Add log-likelihood contribution
         
     else:
         p = np.nan
@@ -95,7 +95,7 @@ def score(theta, model, solver, data, pnames):
     model,lik_pr, pk, ev, dev, d,x,dx1 = ll(theta, model, solver, data, pnames,9) # Evaluate likelihood function
     F = np.eye(model.n)-dev # Get frechet derivative     
     N = data.x.size # Number of observations
-    dc = 0.001*model.grid # Get derivative of cost function wrt c
+    dc = 0.001*model.grid # Get derivative of cost function in utility wrt c
 
     # Compute the score
     if theta.size>2:
@@ -141,7 +141,7 @@ def grad(theta, model, solver,data, pnames):
     return -np.mean(s,0)
 
 def hes(theta, model, solver,data, pnames):
-    """ Compute Hessian of log-likelihood function """
+    """ Compute Hessian of log-likelihood function as outer product of scores"""
     s= score(theta, model, solver, data, pnames)
 
     return s.T@s/data.shape[0]

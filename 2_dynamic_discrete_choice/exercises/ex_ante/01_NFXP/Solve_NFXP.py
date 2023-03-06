@@ -29,7 +29,9 @@ class solve_NFXP():
             setattr(self,key,val) 
 
     def poly(self,bellman, V0=np.zeros(1), beta= 0.0, output=1):
-        """" Solves the model using the poly-algorithm."""
+        """" Solves the model using the poly-algorithm.
+        set beta = 0.0 if you want to solve only with successive approximations.
+        """
 
         t0poly = time.time()  # set the starting time
 
@@ -70,7 +72,9 @@ class solve_NFXP():
             print('solve_NFXP.poly: output must be 1,2,3 or 5')
 
     def sa(self,bellman,V0=np.zeros(1), beta=0.0):
-        """"Solves the model using the successive approximations algorithm."""
+        """"Solves the model using the successive approximations algorithm.
+        set beta = 0.0 if you want to solve only with successive approximations.
+        """
         #Empty class to store the iteration output
         class iteration: pass
         t0 = time.time()  # set the starting time
@@ -86,7 +90,7 @@ class solve_NFXP():
             # Stopping criteria 1: Check if tolerance is below the specified tolerance
             adj  = np.ceil(np.log10(abs(max(V0))))
             ltol = self.sa_tol*10**adj  # Adjust final tolerance
-            if (i<=self.sa_min) and (iteration.tol[i]<ltol):
+            if (i>=self.sa_min) and (iteration.tol[i]<ltol):
                 iteration.message = "SA converged after {} iterations, tolerance: {:.4g}".format(i,iteration.tol[i])
                 iteration.converged = 'true'
                 break
@@ -95,6 +99,7 @@ class solve_NFXP():
             iteration.rtol[i] = iteration.tol[i]/iteration.tol[max(i-1,0)]
             if (i>=self.sa_min) and (abs(beta-iteration.rtol[i]) < self.tol_ratio):
                 iteration.message = 'SA stopped prematurely due to relative tolerance. Start NK iterations'
+                iteration.converged = 'halfway'
                 break
         
         # Store the iteration output
@@ -159,7 +164,7 @@ class solve_NFXP():
                 print(f'Iteration {i+1}, tol {iter_tol:10.4g}, tol(j)/tol(j-1) {iteration.rtol[i]:10.4g}')
 
         if self.printfxp>0:           # print final output
-            if iteration.converged == 'true':
+            if iteration.converged != 'false':
                 print(f'{iteration.message}')
             else:
                 print(f'Maximum number of iterations reached, tolerance: {iteration.tol[-1]:.4f}')
