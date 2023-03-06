@@ -84,7 +84,7 @@ class zurcher():
     def dbellman(self,pk): 
         '''Compute derivative of Bellman operator'''
         dev1 = self.beta * self.P1 * pk.transpose()
-        dev1[:,0] += self.beta * self.P1 @ (1-pk)  # Add derivative of expected value of replacement
+        dev1[:,0] += self.beta * self.P1 @ (1-pk)  
         
         return dev1
 

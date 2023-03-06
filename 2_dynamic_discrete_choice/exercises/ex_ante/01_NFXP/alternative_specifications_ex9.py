@@ -48,9 +48,9 @@ def ll(theta, model, solver,data, pnames, ev_nul, out=1): # out=1 solve optimiza
     global ev
     
     #Update model parameters
-    x = data.x
-    d = data.d
-    dx1 = data.dx1
+    x = np.array(data.x - 1) # x is the index of the observed state: We subtract 1 because python starts counting at 0
+    d = np.array(data.d) # d is the observed decision
+    dx1 = np.array(data.dx1) # dx1 is observed change in x 
 
     model=updatepar(model,pnames,theta)
     model.p = np.abs(model.p)    # helps BHHH which is run as unconstrained optimization
@@ -94,25 +94,39 @@ def score(theta, model, solver, data, pnames, ev_nul):
     F = np.eye(model.n)-dev    
     N = data.x.size
     dc = 0.001*model.grid
+    pk = pk.reshape((model.n,1))  # Reshape to get correct shape for matrix multiplication
 
-    # Compute the score
+
+
+    ##### COMPUTE THE SCORE #######
+    # Check if there are parameters for p
     if theta.size>2:
         n_p = len(model.p)
     else:
         n_p = 0
 
-    # Step 1: compute derivative of contraction operator wrt. parameters
-    dbellman_dtheta=np.zeros((model.n,2 + n_p)) 
-    dbellman_dtheta[:,0] = (1-pk)*(-1) # derivative wrt RC
-    dbellman_dtheta[:,1] = pk*(-dc)   # derivative wrt c
 
+    # STEP 1: compute derivative of contraction operator wrt. parameters
+
+    ## Derivative of utility function wrt. parameters
+    dutil_dtheta=np.zeros((model.n, 2 + n_p, 2)) # shape is (gridsize, number of parameters, number of choices in utility function)
+    dutil_dtheta[:,0, 0] = 0 # derivative of keeping wrt RC
+    dutil_dtheta[:,0, 1] = -1 # derivative of replacing wrt RC
+    dutil_dtheta[:,1, 0] = -dc # derivative of keeping wrt c
+    dutil_dtheta[:,1, 1] = -dc[0] # derivative of replacing wrt c
+
+    # Derivative of contraction operator wrt. utility parameters
+    dbellman_dtheta=np.zeros((model.n, 2 + n_p)) # shape is (gridsize, number of parameters)
+    dbellman_dtheta[:,:] =  model.P1 @ (pk * dutil_dtheta[:, :, 0] + (1 - pk) * dutil_dtheta[:, :, 1])
+
+
+    # Derivative of contraction operator wrt. p
     if theta.size>2:        
-        vk = -model.cost+model.beta*ev
-        vr = -model.RC-model.cost[0]+model.beta*ev[0]
-        vmax = np.maximum(vk,vr)
-        dbellman_dpi = vmax+np.log(np.exp(vk-vmax)+np.exp(vr-vmax))
-
-        for i_p in range(n_p):
+        vk = -model.cost+model.beta*ev # Value of keeping
+        vr = -model.RC-model.cost[0]+model.beta*ev[0] # Value of replacing
+        vmax = np.maximum(vk,vr) # Get maximum value
+        dbellman_dpi = vmax+np.log(np.exp(vk-vmax)+np.exp(vr-vmax)) #Re-centered log-sum: Value functin 
+        for i_p in range(n_p): # loop over p
             part1 = dbellman_dpi[i_p:-1]
             part2 = np.hstack((dbellman_dpi[n_p:model.n], np.tile(dbellman_dpi[-1],(n_p-i_p-1))))
             dbellman_dtheta[0:model.n-i_p-1,2+i_p] =part1-part2
@@ -120,11 +134,13 @@ def score(theta, model, solver, data, pnames, ev_nul):
         invp=np.exp(-np.log(model.p))
         invp = np.vstack((np.diag(invp[0:n_p]),-np.ones((1,n_p))*invp[n_p-1]))
       
-    # Step 2: compute derivative of ev wrt. parameters
+    # STEP 2: Compute derivative of Fixed point wrt. parameter
     dev_dtheta = np.linalg.solve(F,dbellman_dtheta)
 
-    # Step 3: compute derivative of log-likelihood wrt. parameters
-    score = ((d - (1- lik_pr))[:,None])   * ( np.vstack((-np.ones(N), dc[x-1], np.zeros((n_p,N)))).T + np.broadcast_to(dev_dtheta[0],(N,2+n_p)) - dev_dtheta[x-1] )
+    # STEP 3: Compute derivative of log-likelihood wrt. parameters
+    dv_keep = dutil_dtheta[x, :, 0] +  model.beta * dev_dtheta[x, :] # derivative of value function keeping wrt. parameters
+    dv_replace = dutil_dtheta[x, :, 1] +  model.beta *  dev_dtheta[0, :] # derivative of value function replacing wrt. parameters
+    score = (d - (1 - lik_pr)).reshape(-1,1) * (dv_replace - dv_keep)   # derivative of log-likelihood wrt. parameters
 
     if theta.size>2:
         for i_p in range(n_p): 
