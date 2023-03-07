@@ -50,10 +50,13 @@ def solve_deaton_infty(par):
     while (par.max_iter>= sol.it and par.tol<sol.delta):
         
         V0 = sol.V.copy()
-        interp = interpolate.interp1d(par.grid_W,V0, bounds_error=False, fill_value = "extrapolate") #Use this instead of np.interp, because it can extrapolate outside grid
-        
+        #This time we use scipy's interpolate function instead of numpy's
+        #Scipy's interpolater allows for extrapolation outside the grid
+        interp = interpolate.interp1d(par.grid_W,V0, bounds_error=False, fill_value = "extrapolate")
+
         for iw,w in enumerate(par.grid_W):
             #fill in
+            #Hint: Similar to Exercise_6
             
             
             
