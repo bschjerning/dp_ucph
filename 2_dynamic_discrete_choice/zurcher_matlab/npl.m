@@ -87,7 +87,7 @@ classdef npl
         function [mp, pk, logl, K]=estim(theta0, pk0, data, P, mp, Kmax);  % NPL algorithm for K-PI estimators
             global pk
 
-            options =  optimset('Algorithm','trust-region','Display','off', 'GradObj','on', 'TolFun',1E-6,'TolX',0,'Hessian','on');
+            options =  optimset('Algorithm','trust-region','Display','off','TolFun',1E-6,'TolX',0);
             if nargin==5;
                 Kmax=100;
             end
@@ -138,10 +138,19 @@ classdef npl
             end
             timenpl=toc;
             fprintf('--------------------------------------------------------------------------\n');
-            fprintf('Time to solve engine replacement model: %6.6f seconds\n', timenpl);
-
             fprintf('\n\n');
+            fprintf('Converged NPL estimates:\n');
             mp.RC=theta_npl(1); mp.c=theta_npl(2);
+
+
+            options =  optimset('Algorithm','trust-region','Display','off', 'GradObj','on', 'TolFun',1E-6,'TolX',0,'Hessian','on');
+            [theta_npl,FVAL,EXITFLAG,OUTPUT1, grad,hessian] = fminunc(@(theta) npl.ll(theta, pk0, data, P, mp, Finv),theta0,options);
+            samplesize=numel(data.d);
+            Avar=inv(hessian*samplesize);
+
+            output.estimates(mp, [mp.pnames_u mp.pnames_P], theta_npl, Avar);
+            fprintf('Time to estimate engine replacement model: %6.6f seconds\n', timenpl);
+
         end % end of estim
 
         function [pk_solve] = solve(mp, P, pk0, fig)  % Solves pk=Psi(pk) using successive approximations 

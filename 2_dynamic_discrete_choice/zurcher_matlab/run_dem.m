@@ -47,7 +47,7 @@ for dynamic=0:1;
 		fprintf('Mean mileage since last Replacement         : %1.5f \n',  sum(x.*pp_K')/(sum(pp_K')));
 
 		figure(1)
-		plot(x, [pp_K'/sum(pp_K) pp_R'/sum(pp_R)]);
+		plot(x, [pp_K'/sum(pp_K) pp_R'/sum(pp_R)], 'LineWidth', 3);
 		legend('Pr(x, i=Keep)', 'Pr(x, i=Replace)')
 		title('Equilibrium Distribution: Bus mileage');
 		xlabel('Mileage');
@@ -79,7 +79,7 @@ for dynamic=0:1;
 
 	figure(2)
 	hold on;
-	plot(RCgrid*4343/mp0.RC, Demand, pl);
+	plot(RCgrid*4343/mp0.RC, Demand, pl,  'LineWidth', 3);
 	ylim([0 0.4]);
 	xlim([0 12000]);
 	title('Expected Replacement Demand Function');
