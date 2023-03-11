@@ -34,6 +34,7 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0):
         theta0 = [model.RC, model.c] + model.p.tolist() # Starting values
         # Call BHHH optimizer
         res = optimize.minimize(ll,theta0, args = (model,solver,data, pnames), method = 'trust-ncg',jac = grad, hess = hes, tol = 1e-8)
+
         # Update parameters
         model=updatepar(model,pnames,res.x)
 
@@ -48,7 +49,7 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0):
     
     return model, res, pnames, theta_hat, Avar, converged
 
-def ll(theta, model, solver,data, pnames, out=1): # out=1 solve optimization
+def ll(theta, model, solver,data, pnames, out=1, no_guess = True): # out=1 solve optimization
     """ Compute log-likelihood function """
     global ev # Use global variable to store value function to use as starting value for next iteration
     
@@ -56,6 +57,9 @@ def ll(theta, model, solver,data, pnames, out=1): # out=1 solve optimization
     x = np.array(data.x - 1) # x is the index of the observed state: We subtract 1 because python starts counting at 0
     d = np.array(data.d) # d is the observed decision
     dx1 = np.array(data.dx1) # dx1 is observed change in x 
+
+    if no_guess == False:
+        ev = np.zeros((model.n)) # Use previous value function as starting value
     
     # Update values
     model=updatepar(model,pnames,theta)

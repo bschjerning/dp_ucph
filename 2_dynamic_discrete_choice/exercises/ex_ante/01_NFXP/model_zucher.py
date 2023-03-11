@@ -167,8 +167,8 @@ class zurcher():
         idx =  np.reshape(idx,T*N,order='F')
         t = np.reshape(t,T*N,order='F')
         d = np.reshape(d,T*N,order='F')
-        x = np.reshape(x,T*N,order='F')
-        x1 = np.reshape(x1,T*N,order='F')
+        x = np.reshape(x,T*N,order='F') + 1 # add 1 to match the data - 1,2,...,n
+        x1 = np.reshape(x1,T*N,order='F') + 1 # add 1 to match the data - 1,2,...,n
         dx1 = np.reshape(dx1,T*N,order='F')
 
 
