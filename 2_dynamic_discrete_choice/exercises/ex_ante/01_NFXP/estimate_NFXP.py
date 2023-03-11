@@ -9,7 +9,7 @@ ev = np.zeros(1) # Global variable
 def estimate(model,solver,data,theta0=[0,0],twostep=0):
     """" Estimate model using NFXP"""
     global ev
-    ev = np.zeros(1) 
+    ev = np.zeros((model.n)) 
     
     samplesize = data.shape[0]
     
@@ -119,13 +119,13 @@ def score(theta, model, solver, data, pnames):
 
     # Derivative of contraction operator wrt. utility parameters
     dbellman_dtheta=np.zeros((model.n, 2 + n_p)) # shape is (gridsize, number of parameters)
-    dbellman_dtheta[:,:] =  model.P1 @ (pk * dutil_dtheta[:, :, 0] + (1 - pk) * dutil_dtheta[:, :, 1])
+    dbellman_dtheta[:,:] =  (pk * dutil_dtheta[:, :, 0] + (1 - pk) * dutil_dtheta[:, :, 1])
 
 
     # Derivative of contraction operator wrt. p
     if theta.size>2:        
-        vk = -model.cost+model.beta*ev # Value of keeping
-        vr = -model.RC-model.cost[0]+model.beta*ev[0] # Value of replacing
+        vk = -model.cost + model.beta * model.P1 @ ev # Value of keeping
+        vr = -model.RC-model.cost[0]+model.beta *model.P2 @ ev # Value of replacing
         vmax = np.maximum(vk,vr) # Get maximum value
         dbellman_dpi = vmax+np.log(np.exp(vk-vmax)+np.exp(vr-vmax)) #Re-centered log-sum: Value functin 
         for i_p in range(n_p): # loop over p
@@ -140,9 +140,18 @@ def score(theta, model, solver, data, pnames):
     dev_dtheta = np.linalg.solve(F,dbellman_dtheta)
 
     # STEP 3: Compute derivative of log-likelihood wrt. parameters
-    dv_keep = dutil_dtheta[x, :, 0] +  model.beta * dev_dtheta[x, :] # derivative of value function keeping wrt. parameters
-    dv_replace = dutil_dtheta[x, :, 1] +  model.beta *  dev_dtheta[0, :] # derivative of value function replacing wrt. parameters
-    score = (d - (1 - lik_pr)).reshape(-1,1) * (dv_replace - dv_keep)   # derivative of log-likelihood wrt. parameters
+
+
+    score = np.zeros((N, 2 + n_p)) # Initialize score function
+    for d_loop in range(2): # Loop over decisions (keep=0, replace=1)
+        # Get transition matrix
+        if d_loop == 0:
+            P = model.P1
+        else:
+            P = model.P2
+        dv = dutil_dtheta[:, :, d_loop] + model.beta * P @ dev_dtheta  # derivative of choice-specific value function wrt. parameters
+        choice_prob = lik_pr * (1 - d_loop) + (1-lik_pr) * d_loop # get probability of choice in loop
+        score += ((d == d_loop) -  choice_prob ).reshape(-1,1) * dv[x, :] # Add derivative of log-likelihood wrt. parameters
 
     # Add derivative of log-likelihood from mileage process wrt. p
     if theta.size>2:

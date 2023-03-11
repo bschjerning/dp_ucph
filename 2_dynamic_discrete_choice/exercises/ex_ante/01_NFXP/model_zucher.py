@@ -55,17 +55,17 @@ class zurcher():
         self.P1 = P1
         self.P2 = P2
 
-    def bellman(self,ev0=np.zeros(1),output=1):
-        '''Evaluate Bellman operator, choice probability and Frechet derivative'''
+    def bellman(self,ev0,output=1):
+        '''Evaluate Bellman operator, choice probability and Frechet derivative - written in integrated value form'''
 
         # Value of options:
-        value_keep = -self.cost + self.beta*ev0 # nx1 matrix
-        value_replace = -self.RC - self.cost[0] + self.beta*ev0[0]   # 1x1
+        value_keep = -self.cost + self.beta * self.P1 @ ev0 # nx1 matrix
+        value_replace = -self.RC - self.cost[0] + self.beta * self.P2 @ ev0   # 1x1
 
         # recenter Bellman by subtracting max(VK, VR)
-        maxV = np.maximum(value_keep,value_replace) 
+        maxV = np.maximum(value_keep, value_replace) 
         logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))  # Compute logsum to handle expectation over unobserved states
-        ev1 = self.P1@logsum # Compute expected value of keep over state transition
+        ev1 = logsum # Bellman operator as integrated value
 
         if output == 1:
             return ev1
@@ -83,8 +83,16 @@ class zurcher():
 
     def dbellman(self,pk): 
         '''Compute derivative of Bellman operator'''
-        dev1 = self.beta * self.P1 * pk.transpose()
-        dev1[:,0] += self.beta * self.P1 @ (1-pk)  
+        dev1 = np.zeros((self.n,self.n))
+        for d in range(2): # Loop over choices 
+            if d == 0:
+                P = self.P1
+                choice_prob =  pk
+            else:
+                P = self.P2
+                choice_prob = 1-pk
+
+            dev1 += self.beta * choice_prob.reshape(-1, 1) * P 
         
         return dev1
 

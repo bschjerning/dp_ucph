@@ -96,11 +96,12 @@ class solve_NFXP():
                 break
 
             # Stopping criteria 2: Check if the relative tolerance and switch to N-K algorithm
-            iteration.rtol[i] = iteration.tol[i]/iteration.tol[max(i-1,0)]
-            if (i>=self.sa_min) and (abs(beta-iteration.rtol[i]) < self.tol_ratio):
-                iteration.message = 'SA stopped prematurely due to relative tolerance. Start NK iterations'
-                iteration.converged = 'halfway'
-                break
+            if i>=self.sa_min:
+                iteration.rtol[i] = iteration.tol[i]/iteration.tol[max(i-1,0)]
+                if (abs(beta-iteration.rtol[i]) < self.tol_ratio):
+                    iteration.message = 'SA stopped prematurely due to relative tolerance. Start NK iterations'
+                    iteration.converged = 'halfway'
+                    break
         
         # Store the iteration output
         iteration.n = i+1
