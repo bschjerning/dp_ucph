@@ -20,10 +20,10 @@ def estimate(model,solver,data,ev_nul,theta0=[0,0],twostep=0):
     samplesize = data.shape[0]
     # STEP 1: Find p 
     tabulate = data.dx1.value_counts()
-    p = [tabulate[i]/sum(tabulate) for i in range(tabulate.size-1)]
+    p = [tabulate[i]/sum(tabulate) if i < len(tabulate) else 0 for i in range(len(model.p))]
 
     # STEP 2: Estimate structual parameters
-    model.p = p # Use first step estimates as starting values for p
+    model.p[:] = p # Use first step estimates as starting values for p
     
     # Estimate RC and C
     pnames = ['RC','c']

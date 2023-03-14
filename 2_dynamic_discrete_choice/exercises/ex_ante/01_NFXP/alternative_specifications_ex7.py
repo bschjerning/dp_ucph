@@ -21,14 +21,14 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0,est_type=0):
     samplesize = data.shape[0]
     # STEP 1: Find p 
     tabulate = data.dx1.value_counts()
-    p = [tabulate[i]/sum(tabulate) for i in range(tabulate.size-1)]
+    p = [tabulate[i]/sum(tabulate) if i < len(tabulate) else 0 for i in range(len(model.p))]
 
     # STEP 2: Estimate structual parameters
-    model.p = p # Use first step estimates as starting values for p
+    model.p[:] = p # Use first step estimates as starting values for p
     
     # Estimate RC and C
     pnames = ['RC','c']
-
+    # print(theta0)
     t0 = time.time()
     if est_type == 0: # BHHH
         res = optimize.minimize(ll,theta0,args = (model, solver, data, pnames), method = 'trust-ncg',jac = grad, hess = hes, tol=1e-8)
@@ -50,7 +50,7 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0,est_type=0):
         res = optimize.minimize(ll,theta0, args = (model,solver,data, pnames), method = 'trust-ncg',jac = grad, hess = hes, tol = 1e-8)
         model=updatepar(model,pnames,res.x)
     if est_type == 1: # BHHH
-        res = optimize.minimize(ll,theta0, args = (model,solver,data, pnames),jac = grad, tol = 1e-8)
+        res = optimize.minimize(ll,theta0, args = (model,solver,data, pnames),jac = grad, tol = 1e-8 )
         model=updatepar(model,pnames,res.x)
     
     if est_type == 2: # BHHH
@@ -66,6 +66,7 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0,est_type=0):
 
 def ll(theta, model, solver,data, pnames, out=1): # out=1 solve optimization, out =2 find hessian or the gradient
     global ev
+    # print(theta)
     
     #Update model parameters
     x = np.array(data.x - 1) # x is the index of the observed state: We subtract 1 because python starts counting at 0

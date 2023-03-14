@@ -110,6 +110,7 @@ class zurcher():
         # Montly mileage
         dx1 = x-np.append(0,x[0:-1])
         dx1 = dx1*(1-dl)+x*dl
+        dx1 = np.where(dx1>len(self.p),len(self.p),dx1) # We limit the number of steps in mileage
 
         # change type to integrer
         x = x.astype(int)
@@ -142,9 +143,9 @@ class zurcher():
         t = np.tile(np.arange(1,T+1),(N,1)).T
         
         # Draw random numbers
-        u_init = np.random.randint(self.n,size=(1,N))
-        u_dx = np.random.rand(T,N)
-        u_d = np.random.rand(T,N)
+        u_init = np.random.randint(self.n,size=(1,N)) # initial condition
+        u_dx = np.random.rand(T,N) # mileage
+        u_d = np.random.rand(T,N) # choice
         
         # Find states and choices
         csum_p = np.cumsum(self.p)
@@ -158,7 +159,7 @@ class zurcher():
         x[0,:] = u_init # initial condition
         for it in range(T):
             d[it,:] = u_d[it,:]<1-pk[x[it,:]]  # replace = 1 , keep = 0   
-            x1[it,:] = np.minimum(x[it,:]*(1-d[it,:]) + dx1[it,:] , self.n-1)
+            x1[it,:] = np.minimum(x[it,:]*(1-d[it,:]) + dx1[it,:] , self.n-1) # State transition, minimum to avoid exceeding the maximum mileage
             if it < T-1:
                 x[it+1,:] = x1[it,:]
                 
@@ -167,8 +168,8 @@ class zurcher():
         idx =  np.reshape(idx,T*N,order='F')
         t = np.reshape(t,T*N,order='F')
         d = np.reshape(d,T*N,order='F')
-        x = np.reshape(x,T*N,order='F') + 1 # add 1 to match the data - 1,2,...,n
-        x1 = np.reshape(x1,T*N,order='F') + 1 # add 1 to match the data - 1,2,...,n
+        x = np.reshape(x,T*N,order='F') + 1 # add 1 to make index start at 1 as in data - 1,2,...,n
+        x1 = np.reshape(x1,T*N,order='F') + 1 # add 1 to make index start at 1 as in data - 1,2,...,n
         dx1 = np.reshape(dx1,T*N,order='F')
 
 
