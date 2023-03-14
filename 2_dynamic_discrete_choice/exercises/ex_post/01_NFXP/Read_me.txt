@@ -1,5 +1,5 @@
 *******************************************************************************************
-* Functions for Exercise 3 *
+* Functions for NFXP exercises
 *******************************************************************************************
 
 py-files:
@@ -12,4 +12,3 @@ ipynb-files:
 01_NFXP: Runs the first exercise
 02_NFXP_simulate: Runs the second exercise
 03_NFXP_equilibrium: Runs the third exercise
-
