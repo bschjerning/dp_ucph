@@ -32,6 +32,7 @@ class zurcher():
     def create_grid(self):
         self.grid = np.arange(0,self.n) # milage grid
         self.cost = 0.001*self.c*self.grid  # cost function
+        self.dc = 0.001*self.grid # derivative of cost function
         self.state_transition() 
 
     def state_transition(self):
