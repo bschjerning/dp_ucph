@@ -30,18 +30,18 @@ class zurcher():
         self.create_grid()
 
     def create_grid(self):
-        self.grid = np.arange(0,self.n) 
-        self.cost = 0.001*self.c*self.grid  
-        self.dc = 0.001*self.grid
-        self.state_transition()
+        self.grid = np.arange(0,self.n) # milage grid
+        self.cost = 0.001*self.c*self.grid  # cost function
+        self.state_transition() 
 
     def state_transition(self):
         '''Compute transition probability matrixes conditional on choice'''
-        p = np.append(self.p,1-np.sum(self.p))
-        P1 = np.zeros((self.n,self.n))
+        p = np.append(self.p,1-np.sum(self.p)) # Get transition probabilities
+        P1 = np.zeros((self.n,self.n)) # Initialize transition matrix
+        # Loop over rows
         for i in range(self.n):
+            # Check if p vector fits entirely
             if i <= self.n-len(p):
-                # lines where p vector fits entirely
                 P1[i][i:i+len(p)]=p
             else:
                 P1[i][i:] = p[:self.n-len(p)-i]
@@ -49,40 +49,50 @@ class zurcher():
 
         # conditional on d=1, replacement
         P2 = np.zeros((self.n,self.n))
+        # Loop over rows
         for i in range(self.n):
             P2[i][:len(p)]=p
         self.P1 = P1
         self.P2 = P2
 
-    def bellman(self,ev0=np.zeros(1),output=1):
+    def bellman(self,ev0,output=1):
+        '''Evaluate Bellman operator, choice probability and Frechet derivative - written in integrated value form'''
 
         # Value of options:
-        value_keep = -self.cost + self.beta*ev0
-        value_replace = -self.RC - self.cost[0] + self.beta*ev0[0]  
+        value_keep = -self.cost + self.beta * self.P1 @ ev0 # nx1 matrix
+        value_replace = -self.RC - self.cost[0] + self.beta * self.P2 @ ev0   # 1x1
 
-        
         # recenter Bellman by subtracting max(VK, VR)
-        maxV = np.maximum(value_keep,value_replace) 
-        logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))  # This is the Logsum 
-        ev1 = self.P1@logsum
+        maxV = np.maximum(value_keep, value_replace) 
+        logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))  # Compute logsum to handle expectation over unobserved states
+        ev1 = logsum # Bellman operator as integrated value
 
         if output == 1:
             return ev1
 
-        # Compute choice probability
+        # Compute choice probability of keep
         pk = 1/(1+np.exp(value_replace-value_keep))       
         
         if output == 2:
             return ev1, pk
 
-        # Compute Frechet derivative
-        dev1 =self.dbellman(pk)
+        # Compute derivative of Bellman operator
+        dev1 = self.dbellman(pk)
 
         return ev1, pk, dev1
 
     def dbellman(self,pk): 
-        dev1 = self.beta * self.P1 * pk.transpose()
-        dev1[:,0] += self.beta * self.P1 @ (1-pk)
+        '''Compute derivative of Bellman operator'''
+        dev1 = np.zeros((self.n,self.n))
+        for d in range(2): # Loop over choices 
+            if d == 0:
+                P = self.P1
+                choice_prob =  pk
+            else:
+                P = self.P2
+                choice_prob = 1-pk
+
+            dev1 += self.beta * choice_prob.reshape(-1, 1) * P 
         
         return dev1
 
@@ -100,6 +110,7 @@ class zurcher():
         # Montly mileage
         dx1 = x-np.append(0,x[0:-1])
         dx1 = dx1*(1-dl)+x*dl
+        dx1 = np.where(dx1>len(self.p),len(self.p),dx1) # We limit the number of steps in mileage
 
         # change type to integrer
         x = x.astype(int)
@@ -126,14 +137,17 @@ class zurcher():
     def sim_data(self,N,T,pk): 
 
         np.random.seed(2020)
-
-        idx = np.tile(np.arange(1,N+1),(T,1))
+        
+        # Index 
+        idx = np.tile(np.arange(1,N+1),(T,1))  
         t = np.tile(np.arange(1,T+1),(N,1)).T
-
-        u_init = np.random.randint(self.n,size=(1,N))
-        u_dx = np.random.rand(T,N)
-        u_d = np.random.rand(T,N)
-
+        
+        # Draw random numbers
+        u_init = np.random.randint(self.n,size=(1,N)) # initial condition
+        u_dx = np.random.rand(T,N) # mileage
+        u_d = np.random.rand(T,N) # choice
+        
+        # Find states and choices
         csum_p = np.cumsum(self.p)
         dx1 = 0
         for val in csum_p:
@@ -142,12 +156,10 @@ class zurcher():
         x = np.zeros((T,N),dtype=int)
         x1 =  np.zeros((T,N),dtype=int)
         d = np.nan + np.zeros((T,N))
-
         x[0,:] = u_init # initial condition
-
         for it in range(T):
             d[it,:] = u_d[it,:]<1-pk[x[it,:]]  # replace = 1 , keep = 0   
-            x1[it,:] = np.minimum(x[it,:]*(1-d[it,:]) + d[it,:] + dx1[it,:] , self.n-1)
+            x1[it,:] = np.minimum(x[it,:]*(1-d[it,:]) + dx1[it,:] , self.n-1) # State transition, minimum to avoid exceeding the maximum mileage
             if it < T-1:
                 x[it+1,:] = x1[it,:]
                 
@@ -156,8 +168,8 @@ class zurcher():
         idx =  np.reshape(idx,T*N,order='F')
         t = np.reshape(t,T*N,order='F')
         d = np.reshape(d,T*N,order='F')
-        x = np.reshape(x,T*N,order='F')
-        x1 = np.reshape(x1,T*N,order='F')
+        x = np.reshape(x,T*N,order='F') + 1 # add 1 to make index start at 1 as in data - 1,2,...,n
+        x1 = np.reshape(x1,T*N,order='F') + 1 # add 1 to make index start at 1 as in data - 1,2,...,n
         dx1 = np.reshape(dx1,T*N,order='F')
 
 
@@ -171,7 +183,7 @@ class zurcher():
         # pk: choice probability
 
         # Outputs    
-        # pp: Pr{x} (Equilibrium distribution of mileage) ER PI 
+        # pp: Pr{x} (Equilibrium distribution of mileage)
         # pp_K: Pr{x,i=Keep}
         # pp_R: Pr{x,i=Replace}
         tmp =self.P1[:,1:self.n] * pk[1:self.n]

@@ -23,19 +23,19 @@ def sparsity_pattern(Nc,N, M):
 def estimate(model, data, theta0 = [0,0],twostep=0):
     assert(twostep == 1),'MPEC only implemented for twostep=1'
 
-
     # Setup
     pnames = ['RC','c']
 
     class data_class: pass
-    data_class.xd = np.nan+np.zeros((model.n,data.d.size,))
-    for i in range(model.n):
-        data_class.xd[i,:] = data.x == i+1
-    data_class.xd = data_class.xd.astype(int)
-    
-    data_class.x = data.x 
+
+    data_class.x = data.x - 1
     data_class.dk = (data.d == 0)
     data_class.dr = (data.d == 1)
+    data_class.xd = np.nan+np.zeros((model.n,data.d.size,))
+    for i in range(model.n):
+        data_class.xd[i,:] = data.x == i + 1
+    data_class.xd = data_class.xd.astype(int)
+    
     
     data = data_class
 
@@ -77,7 +77,7 @@ def ll(theta,model,data,pnames,out=1):
     xd = data.xd
     dk = data.dk
     dr = data.dr
-    
+    print(theta[0:2])
     # Update values
     model.RC = theta[0]
     model.c = theta[1] 
@@ -115,7 +115,7 @@ def con_bellman(theta, model, data, pnames, out=1):
     # Update parameters
     ev0 = theta[-model.n:]
 
-    ev1, pk, dev = model.bellman(ev0=ev0,output=3)
+    ev1, pk, dev = bellman(model, ev0=ev0,output=3)
     if out ==2:
         return pk, dev
 
@@ -130,6 +130,44 @@ def constraint_jac(theta, model, data, pnames):
     DCeq[:,-model.n:] = dev-np.identity(model.n)
 
     return DCeq
+
+
+
+
+
+def bellman(model,ev0=np.zeros(1),output=1):
+    """" 
+    Bellman operator in expected value - operator in model_zucher is in integrated value"""
+
+    # Value of options:
+    value_keep = -model.cost + model.beta*ev0
+    value_replace = -model.RC - model.cost[0] + model.beta*ev0[0]  
+
+    
+    # recenter Bellman by subtracting max(VK, VR)
+    maxV = np.maximum(value_keep,value_replace) 
+    logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))  # This is the Logsum 
+    ev1 = model.P1@logsum
+
+    if output == 1:
+        return ev1
+
+    # Compute choice probability
+    pk = 1/(1+np.exp(value_replace-value_keep))       
+    
+    if output == 2:
+        return ev1, pk
+
+    # Compute Frechet derivative
+    dev1 = dbellman(model, pk)
+
+    return ev1, pk, dev1
+
+def dbellman(model,pk): 
+    dev1 = model.beta * model.P1 * pk.transpose()
+    dev1[:,0] += model.beta * model.P1 @ (1-pk)
+    
+    return dev1
 
 
 
