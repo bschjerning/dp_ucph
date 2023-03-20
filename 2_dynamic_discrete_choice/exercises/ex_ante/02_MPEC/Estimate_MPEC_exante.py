@@ -110,11 +110,11 @@ def ll(theta,model,data,pnames,out=1):
 
     #Hint: We are now solving in expected value function space. This means that unlike in exercise_1, 
     # you should not multiply ev with the transition matrix.
-    v_keep = # Value of keep
-    v_replace = # Value of replace
+    #v_keep = # Value of keep
+    #v_replace = # Value of replace
     
     # Choice probabiltiy of keep for all states
-    pk = 
+    #pk = 
 
     # Choice probability of keep given observed state in data
     lik_pr =  pk[data.x] 
@@ -123,7 +123,7 @@ def ll(theta,model,data,pnames,out=1):
         return model, lik_pr
 
     # Evaluate log-likelihood
-    log_lik = 
+    # log_lik = 
 
     # Objective function is negative mean log-likelihood
     f = -np.mean(log_lik)

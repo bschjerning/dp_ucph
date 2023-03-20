@@ -77,7 +77,6 @@ def ll(theta,model,data,pnames,out=1):
     xd = data.xd
     dk = data.dk
     dr = data.dr
-    print(theta[0:2])
     # Update values
     model.RC = theta[0]
     model.c = theta[1] 
