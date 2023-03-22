@@ -49,7 +49,7 @@ def estimate(model,solver,data,theta0=[0,0],twostep=0):
     
     return model, res, pnames, theta_hat, Avar, converged
 
-def ll(theta, model, solver,data, pnames, out=1, no_guess = True): # out=1 solve optimization
+def ll(theta, model, solver,data, pnames, out=1, no_guess = False): # out=1 solve optimization
     """ Compute log-likelihood function """
     global ev # Use global variable to store value function to use as starting value for next iteration
     
@@ -58,8 +58,8 @@ def ll(theta, model, solver,data, pnames, out=1, no_guess = True): # out=1 solve
     d = np.array(data.d) # d is the observed decision
     dx1 = np.array(data.dx1) # dx1 is observed change in x 
 
-    if no_guess == False:
-        ev = np.zeros((model.n)) # Use previous value function as starting value
+    if no_guess == True: #Set ev to zero instead of using global variable
+        ev = np.zeros((model.n))
     
     # Update values
     model=updatepar(model,pnames,theta)
