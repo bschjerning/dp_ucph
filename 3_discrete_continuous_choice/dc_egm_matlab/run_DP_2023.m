@@ -2,6 +2,7 @@
 addpath('utils');
 
 m=model_deaton %create the model objects
+% m=model_phelps %create the model objects
 
 %% Solve the model with VFI
 if 0
@@ -16,7 +17,7 @@ end
 
 %% Solve the model with EGM
 if 0
-  K=100;
+  K=1;
   fprintf('\nSolving %s with EGM %d times:\n',m.label,K)
   tic
   for i=1:K
@@ -30,7 +31,7 @@ end
 %%
 
 %% Simulate some data
-if 0
+if 1
   m.solve_egm;
   m.nsims=100;
   m.sim;
@@ -65,7 +66,7 @@ end
 
 
 %% Flat simulated consumption path using retirement model without taste shocks
-if 1
+if 0
   m2=model_retirement;
   m2.ngridm=500;
   m2.df=1/(1+m2.r); %flat consumption hopefully
@@ -96,8 +97,8 @@ if 0
   m2.solve_dcegm;
   t=toc;
   fprintf('Retirement model solved with DC-EGM in %s\n',ht(t));
-  % m2.plot('policy');
-  % m2.plot('value');
+  m2.plot('policy');
+  m2.plot('value');
   m2.plot('prob_work');
   m2.nsims=100;
   m2.sim;
