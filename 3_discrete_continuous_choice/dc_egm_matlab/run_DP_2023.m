@@ -31,7 +31,7 @@ end
 %%
 
 %% Simulate some data
-if 1
+if 0
   m.solve_egm;
   m.nsims=100;
   m.sim;
