@@ -49,38 +49,44 @@ def solve_ti(par):
     sol.C[:,par.T-1] = par.grid_M
     
     # Loop over periods
-    for t in range(par.T-2, -1, -1):  #from period T-2, until period 0, backwards 
+    for t in reversed(range(0,par.T-1)):  #from period T-2, until period 0 
     
-            x0 = np.ones(par.num_M)*1.0e-7 # Picking some arbitrary small starting value
+            # Picking some arbitrary small starting value
+            x0 = np.ones(par.num_M)*1.0e-7 
             
+            # Define the objective function
             obj_fun = lambda x: euler_error_func(x,t,par,sol)
             
-            res = optimize.fsolve(obj_fun, x0)
+            # Find roots
+            res = optimize.root(obj_fun, x0)
+            x1 = res.x #Unpack roots
             
-            # corner solution
-            I = res>par.grid_M
-            res[I] = par.grid_M[I]
+            # Handle corner solutions
+            I = x1>par.grid_M # find indices where consumption is larger than assets
+            x1[I] = par.grid_M[I] # set consumption to assets (consume everything)
             
             # final solution
-            sol.C[:,t] = res
+            sol.C[:,t] = x1
             
         
     return sol
 
-def euler_error_func(x,t,par,sol):
+def euler_error_func(c,t,par,sol):
     
-    c = x
-    
+    #Find next period's assets
     m_next = par.R*(par.grid_M - c)[:,np.newaxis] + par.eps[np.newaxis,:] # creating a matrix with state grid points as rows and different shocks as columns
 
+    #Interpolate next period's consumption
     interp = interpolate.interp1d(par.grid_M,sol.C[:,t+1], bounds_error=False, fill_value = "extrapolate") 
-
     c_next = interp(m_next)
 
-    EU_next = np.sum(par.eps_w[np.newaxis,:]*marg_util(c_next,par), axis=1) # Expected marginal utility next period
+    # Calculate next period expected marginal utility
+    EU_next = np.sum(par.eps_w[np.newaxis,:]*marg_util(c_next,par), axis=1)
     
-    U_now = marg_util(c,par)    # Marginal utility this period
+    # Calculate current period marginal utility
+    U_now = marg_util(c,par) 
 
+    # Calculate Euler error
     euler_error = U_now-par.beta*par.R*EU_next
 
     return euler_error
@@ -133,16 +139,21 @@ def simulate (par,sol):
     np.random.seed(2022)
 
     # Simulate 
-    for t in range(par.T):
-        interp = interpolate.interp1d(par.grid_M,sol.C[:,t], bounds_error=False, fill_value = "extrapolate") 
-        sim.C[:,t] = interp(sim.M[:,t])  # Find consumption given state
-    
-        if t<par.T-1:  # if not last period
-            logY = np.random.normal(par.mu,par.sigma,par.simN)  # Draw random number from the normal distirbution
-            Y = np.exp(logY)
-            A = sim.M[:,t]-sim.C[:,t]
+    for t in range(par.T): #Loop forward in time
         
-            sim.M[:,t+1] = par.R*A + Y # The state in the following period
+        #Interpolate consumption given current wealth
+        interp = interpolate.interp1d(par.grid_M,sol.C[:,t], bounds_error=False, fill_value = "extrapolate") 
+        sim.C[:,t] = interp(sim.M[:,t])
+    
+        # Handle state transition
+        if t<par.T-1:  # if not last period
+            # Draw random shock
+            logY = np.random.normal(par.mu,par.sigma,par.simN)
+            Y = np.exp(logY)
+            
+            # Calculate next period's assets
+            A = sim.M[:,t]-sim.C[:,t]
+            sim.M[:,t+1] = par.R*A + Y
             
      
     return sim

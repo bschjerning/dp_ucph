@@ -26,7 +26,7 @@ def setup():
     par.T = 10
     
     # Gauss Hermite weights and points
-    par.num_shocks = 5
+    par.num_shocks = 5 # Number of quadrature nodes
     x,w = gauss_hermite(par.num_shocks)
     par.eps = np.exp(par.sigma*np.sqrt(2)*x)
     par.eps_w = w/np.sqrt(np.pi)
@@ -48,8 +48,18 @@ def setup():
 def EGM_loop (sol,t,par):
     interp = interpolate.interp1d(sol.M[:,t+1],sol.C[:,t+1], bounds_error=False, fill_value = "extrapolate")  # Interpolation function
     for i_a,a in enumerate(par.grid_a): # Loop over end-of-period assets
-        #Fill Inn while removing the continue statement
-        continue #Should be removed
+        
+        # Fill in
+        # Hint: Use the EGM step (see Bertel's slides)
+        # 1. Find m_next
+        # 2. Find c_next using interpolation of next period solution
+        # 3. Find expected marginal utility of next period consumption
+        # 4. Find optimal consumption using inverted Euler
+        # 5. Find endogenous cash on hand (m)
+        
+        # Index 0 is used for the corner solution, so start at index 1
+        sol.C[i_a+1,t]= c_now
+        sol.M[i_a+1,t]= c_now + a
 
     return sol
 
@@ -57,7 +67,10 @@ def EGM_vectorized (sol,t,par):
 
     interp = interpolate.interp1d(sol.M[:,t+1],sol.C[:,t+1], bounds_error=False, fill_value = "extrapolate") # Interpolation function
 
-    # Fill inn
+    # Fill in
+    # Hint: Look at the exercise_2.EGM_loop function and follow the EGM step procedure
+    #       Look at the exercise_1.euler_error_func function and follow the vectorization syntax
+    
     return sol
 
 

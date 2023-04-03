@@ -51,33 +51,36 @@ def EGM_loop (sol,t,par):
         # Future m and c
         m_next = par.R * a + par.eps
         c_next = interp(m_next)
-        # Future marginal utility
+        
+        # Future expected marginal utility
         EU_next = np.sum(par.eps_w*marg_util(c_next,par))
 
-        # Currect C and m. We use i_a+1 because we add zero consumption to acound for the borrowing constraint
-        sol.C[i_a+1,t]= inv_marg_util(par.R * par.beta * EU_next, par)
-        sol.M[i_a+1,t]= sol.C[i_a+1,t] + a
+        # Current consumption
+        c_now = inv_marg_util(par.R * par.beta * EU_next, par)
+        
+        # Index 0 is used for the corner solution, so start at index 1
+        sol.C[i_a+1,t]= c_now
+        sol.M[i_a+1,t]= c_now + a
 
     return sol
 
 def EGM_vectorized (sol,t,par):
 
     interp = interpolate.interp1d(sol.M[:,t+1],sol.C[:,t+1], bounds_error=False, fill_value = "extrapolate") # Interpolation function
-
-    nodes = np.tile(par.eps, par.num_a) # Repeat eps for each a
-    a = np.repeat(par.grid_a, par.num_shocks) # Repeat a for each eps
-    #Future m and c
-    m_next  = par.R * a + nodes
+    
+    # Future m and c
+    m_next = par.R*par.grid_a[:,np.newaxis] + par.eps[np.newaxis,:] # Next period assets  
     c_next = interp(m_next)
-    #Compute marginal utility of consumption of next period
-    marg_u_next = marg_util(c_next,par)
-    #Reshape to matrix to fit with eps_w
-    marg_u_next =  np.reshape(marg_u_next, (par.num_a, par.num_shocks))
-    #Compute expected marginal utility
-    EU_next = np.sum(par.eps_w * marg_u_next, axis = 1)
-    # Currect C and m
-    sol.C[1:,t]= inv_marg_util(par.R * par.beta * EU_next, par)
-    sol.M[1:,t]= sol.C[1:,t] + par.grid_a
+    
+    # Future expected marginal utility
+    EU_next = np.sum(par.eps_w[np.newaxis,:] * marg_util(c_next,par),axis=1)
+    
+    # Current consumption
+    c_now = inv_marg_util(par.beta * par.R * EU_next,par)
+    
+    # Index 0 is used for the corner solution, so start at index 1
+    sol.C[1:,t] = c_now
+    sol.M[1:,t] = c_now + par.grid_a
     return sol
 
 
