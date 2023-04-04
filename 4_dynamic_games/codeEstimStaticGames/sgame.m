@@ -179,6 +179,21 @@ classdef sgame
 			logl= sum(logl,1);
 		end
 
+		function [theta1, phat1, fval]=npl_step(d_a,d_b, x_a, x_b, phat0, theta0);
+				% pseudo likelihood
+		      	logl=@(theta) sgame.logl_pml2step(d_a,d_b, x_a, x_b, theta(1), theta(2), phat0(1), phat0(2));
+		      	options = optimset('Display','off');
+		      	options.MaxIterations=10000;
+		      	%  pseudo likelihood estimates, theta
+				[theta1, fval, exitflag]=fminunc(@(theta)-logl(theta), theta0, options);
+				if exitflag<=0
+					theta1=nan(size(theta1));
+				end
+				% policy iteration using theta1
+				phat1(1)=sgame.br_a(phat0(2),x_a, theta1(1), theta1(2)); % firm a
+				phat1(2)=sgame.br_b(phat0(1),x_b, theta1(1), theta1(2)); % firm a
+		end
+
     	function [logl]=logl_npl(d_a,d_b, x_a, x_b, alpha, beta);
 			phat_a=mean(d_a);
 			phat_b=mean(d_b);
