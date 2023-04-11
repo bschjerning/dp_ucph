@@ -5,8 +5,8 @@ import tools
 
 
 def EGM(sol,t,par):
-    #sol = EGM_loop(sol,t,par) 
-    sol = EGM_vec(sol,t,par) 
+    sol = EGM_loop(sol,t,par) 
+    # sol = EGM_vec(sol,t,par) 
     return sol
 
 def EGM_loop (sol,t,par):
@@ -16,26 +16,24 @@ def EGM_loop (sol,t,par):
             fac = par.G*par.L[t]*par.psi_vec
             w = par.w
             xi = par.xi_vec
-            inv_fac = 1/fac
 
             # Futute m and c
-            m_plus = inv_fac*par.R*a+xi
+            m_plus = (1/fac)*par.R*a+xi
             c_plus = tools.interp_linear_1d(sol.m[t+1,:],sol.c[t+1,:], m_plus)
         else:
             fac = par.G*par.L[t]
             w = 1
             xi = 1
-            inv_fac = 1/fac
 
             # Futute m and c
-            m_plus = inv_fac*par.R*a+xi
+            m_plus = (1/fac)*par.R*a+xi
             c_plus = tools.interp_linear_1d_scalar(sol.m[t+1,:],sol.c[t+1,:], m_plus)
 
-        # Future marginal utility
+        # Future expected marginal utility
         marg_u_plus = util.marg_util(fac*c_plus,par)
         avg_marg_u_plus = np.sum(w*marg_u_plus)
 
-        # Currect C and m
+        # Current c and m (i_a+1 as we save the first index point to handle the credit constraint region)
         sol.c[t,i_a+1]=util.inv_marg_util(par.beta*par.R*avg_marg_u_plus,par)
         sol.m[t,i_a+1]=a+sol.c[t,i_a+1]
 
@@ -58,19 +56,16 @@ def EGM_vec (sol,t,par):
         w = np.ones((par.Na,1))
         dim = 1
 
-    inv_fac = 1/fac
-
-    # Futute m and c
-    m_plus = inv_fac*par.R*a+xi
+    # Future m and c
+    m_plus = (1/fac)*par.R*a+xi
     c_plus = tools.interp_linear_1d(sol.m[t+1,:],sol.c[t+1,:], m_plus)
 
-
-    # Future marginal utility
+    # Future expected marginal utility
     marg_u_plus = util.marg_util(fac*c_plus,par)
     marg_u_plus = np.reshape(marg_u_plus,(par.Na,dim))
     avg_marg_u_plus = np.sum(w*marg_u_plus,1)
 
-    # Currect C and m
+    # Current C and m (we save the first index point to handle the credit constraint region)
     sol.c[t,1:]= util.inv_marg_util(par.beta*par.R*avg_marg_u_plus,par)
     sol.m[t,1:]=par.grid_a[t,:]+sol.c[t,1:]
 

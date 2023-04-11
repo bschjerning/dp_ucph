@@ -12,12 +12,19 @@ def EGM(sol,t,par):
 def EGM_loop (sol,t,par):
     for i_a,a in enumerate(par.grid_a[t,:]):
 
-        # Futute m and c
+        # Fill in:
+        # Hint: Same procedure as in 02_EGM.ipynb
         
+        # Future m and c
+        if t+1<= par.Tr: # No pension in the next period
+            fac = par.G*par.L[t]*par.psi_vec # Trick to ease notation and calculations
 
-        # Future marginal utility
+        else:
+            fac = par.G*par.L[t]
 
-        # Currect C and m
+        # Future expected marginal utility
+
+        # Current C and m
         #sol.c[t,i_a+1]=
         #sol.m[t,i_a+1]=
 
@@ -25,6 +32,7 @@ def EGM_loop (sol,t,par):
 
 def EGM_vec (sol,t,par):
 
+    #Fill in:
     
 
     return sol
