@@ -62,11 +62,11 @@ def solve_ti(par):
             x1 = res.x #Unpack roots
             
             # Handle corner solutions
-            I = res>par.grid_M # find indices where consumption is larger than assets
-            res[I] = par.grid_M[I] # set consumption to assets (consume everything)
+            I = x1>par.grid_M # find indices where consumption is larger than assets
+            x1[I] = par.grid_M[I] # set consumption to assets (consume everything)
             
             # final solution
-            sol.C[:,t] = res
+            sol.C[:,t] = x1
             
         
     return sol
