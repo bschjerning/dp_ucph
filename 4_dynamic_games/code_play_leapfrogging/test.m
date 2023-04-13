@@ -1,0 +1,10 @@
+clf;
+figure(1);
+  hold on;
+   for i=1:90;
+      x=(1:i)';
+      y=sin(3*x);
+      plot(x,y);
+      pause(.05);
+   end;
+  hold off;
