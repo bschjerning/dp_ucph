@@ -131,6 +131,13 @@ while (stage > 0);
      fprintf('%24s%10.4f%10.4f\n','Cumulative profits',cumprof1,cumprof2);
      fprintf('%24s%10.4f%10.4f\n','Discounted profits @t=0',discprof1,discprof2);
      fprintf('%s\n',repmat('-',1,44));
+
+     if print_p1
+        fprintf('\n%s',repmat('-',1,60));
+        fprintf('\nMARKET INFO: Firm 1 will invest with probability, p1=%g\n',p1);
+        fprintf('%s\n\n',repmat('-',1,60));
+    end
+
      % fprintf('t=%i (c1,c2,c)=(%g,%g,%g) price: %g firm 1 cumulative profits %g  your cumulative profits %g\n',...
      %   t,c1,c2,c,max(c1,c2),cumprof1,cumprof2);
      reply=input(sprintf('Enter your probability of investing or hit return to use this value: %g ',lastp2),'s');
@@ -451,7 +458,7 @@ else;
   if cumprof1>cumprof2
     fprintf('Firm 1 wins!\n')
      if ismac && voice
-      !say Game over. You lost. Is your investment strategy really a Markov Perfect Equilibrium. Please try to use RLS to solve this game. 
+      !say Game over. You lost. Is your investment strategy really a Markov Perfect Equilibrium? Please try to use RLS to solve this game! 
      end
   elseif cumprof1<cumprof2
     fprintf('GOOOOAAAAAL, you are the winner. You are a better businessman than the Donald!\n');
