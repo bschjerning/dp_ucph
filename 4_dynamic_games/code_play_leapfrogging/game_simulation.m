@@ -10,6 +10,8 @@ setup;
 
 robot_player=1;
 
+print_p1 = false;    % Print investment strategy for opponent  
+
 deterministic_onestep=0; % deterministic one step technology
 
 autoplay=0;  % set to 1 to have two computer players play the game,
