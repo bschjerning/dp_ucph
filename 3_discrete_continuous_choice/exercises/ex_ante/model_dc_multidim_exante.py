@@ -2,7 +2,7 @@
 import numpy as np
 import tools
 from types import SimpleNamespace
-import egm_dc_multidim_exante as egm
+import egm_dc_multidim as egm
 
 
 class model_dc_multidim():
@@ -58,9 +58,7 @@ class model_dc_multidim():
         par.xi,par.xi_w = tools.GaussHermite_lognorm(par.sigma_xi,par.Nxi)
         
         # End of period assets
-        par.grid_a = np.nan + np.zeros([par.T,par.Na])
-        for t in range(par.T):
-            par.grid_a[t,:] = tools.nonlinspace(0+1e-6,par.a_max,par.Na,par.a_phi)
+        par.grid_a = tools.nonlinspace(0+1e-6,par.a_max,par.Na,par.a_phi)
 
         # Cash-on-hand
         par.grid_m =  np.concatenate([np.linspace(0+1e-6,1-1e-6,par.Nm_b), tools.nonlinspace(1+1e-6,par.m_max,par.Nm-par.Nm_b,par.m_phi)])    # Permanent income
@@ -72,6 +70,7 @@ class model_dc_multidim():
         np.random.seed(2020)
 
     def solve(self):
+        """ solve model: Solve for discrete-choice specific consumption and value functions"""
         
         # Initialize
         par = self.par
@@ -85,7 +84,6 @@ class model_dc_multidim():
         # Last period, (= consume all) 
         for i_p in range(par.Np):
             for z_plus in range(2):
-                sol.m[par.T-1,z_plus,:,i_p] = par.grid_m
                 sol.c[par.T-1,z_plus,:,i_p] = par.grid_m
                 sol.v[par.T-1,z_plus,:,i_p] = egm.util(sol.c[par.T-1,z_plus,:,i_p],z_plus,par)
 
