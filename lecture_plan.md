@@ -47,4 +47,4 @@ Tentative lecture plan is presented below.
 |    |  | thu | 25/Apr/23 | Submit project proposal              |
 | 18 |  | wed | 01/May/23 | Research Workshop I (8 AM - 12 PM)   |
 |    |  | thu | 02/May/23 | Research Workshop II (8 AM - 12 PM) |
-| 22 |  | Mon | 03/Jun/23 | **Submit term paper (10 AM)**        |
+| 23 |  | Tue | 04/Jun/23 | **Submit term paper (10 AM)**        |
