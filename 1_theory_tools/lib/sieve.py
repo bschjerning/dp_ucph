@@ -17,7 +17,7 @@ def expand(k, x):
 # plotting tool for f(x), data (x0,y0), and our approximation fhat(x) on the interval [a,b]
 def plot1d(f=None, x0=None, fx0=None, fhat=None, a=None, b=None, color='b',label=''):
     '''helper function to make plots'''
-    plt.figure(num=1, figsize=(10,8))
+    plt.figure(num=1, figsize=(8,5))
     if a is None: a=np.min(x0); 
     if b is None: b=np.max(x0);
     x = np.linspace(a,b,1000) # for plotting func of interst on [a,b]
