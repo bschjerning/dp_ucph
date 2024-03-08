@@ -22,11 +22,11 @@ def setup():
     par.p = np.array([0.0937, 0.4475, 0.4459, 0.0127])   # Transition probability
     par.RC = 11.7257                                     # Replacement cost
     par.c = 2.45569 * 0.001                              # Cost parameter
-    par.beta = 0.9999                                    # Discount factor
+    par.beta = 0.99                                    # Discount factor
     
     # Parameters for VFI
-    par.max_iter = 200   # maximum number of iterations
-    par.tol = 10e-2 #convergence tol. level 
+    par.max_iter = 10000   # maximum number of iterations
+    par.tol = 1.0e-8 #convergence tol. level 
     
     # Create grid
     par.grid = np.arange(0,par.n) # milage grid
@@ -38,9 +38,13 @@ def setup():
     # Simulated extreme value taste shocks
     np.random.seed(1987)
     par.num_eps = 10000
-    par.eps_keep_gumb = np.random.gumbel(-par.beta * np.euler_gamma, 1,par.num_eps)
-    par.eps_replace_gumb = np.random.gumbel(-par.beta * np.euler_gamma, 1,par.num_eps)
+    par.sigma_eps = 1.0
+    par.eps_keep_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma,scale=par.sigma_eps,size=par.num_eps)
+    par.eps_replace_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma, scale=par.sigma_eps,size=par.num_eps)
     
+    # Gaussian taste shocks
+    par.eps_keep_norm = np.random.normal(0,1,par.num_eps)
+    par.eps_replace_norm = np.random.normal(0,1,par.num_eps)
     
     # For vectorized
     par.P1 = create_transition_matrix(0, par)
@@ -85,6 +89,8 @@ def solve_VFI(par, vectorized = False, **kwargs):
         sol.it += 1
         sol.V = V_now
         sol.pk = pk
+    print(f'Finished after {sol.it} iterations')
+    print(f'Convergence achieved: {sol.delta < par.tol}')
     
     return sol
 
@@ -92,7 +98,8 @@ def solve_VFI(par, vectorized = False, **kwargs):
 
 def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
     """
-    The function `bellman` calculates the value and choice for each state in a dynamic programming
+    The function `bellman` evaluates the integreated value bellmann-operator in a dynamic programming problem.
+    ie. For a given guess of the value function for the next period, it calculates a new guess of the value and also the choice probabilities.
     problem using the Bellman equation, considering different types of taste shocks and transition
     probabilities.
     
@@ -110,22 +117,22 @@ def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
       The function `bellman` returns two arrays: `V_now` and `pk`.
     """
     
-    V_now = np.zeros([par.n]) #arbitrary starting values
-    pk = np.zeros([par.n]) #arbitrary starting values
+    V_now = np.zeros([par.n]) # Initialize value function array
+    pk = np.zeros([par.n]) # Initialize choice probability array
     
-    for  x in par.grid:
+    for  x in par.grid: # Loop over states
             
-        # Calculate expected value of each choice
+        # Calculate expected future value across states for each choice
         if stochastic_transition == False:
-            pass # Fill in
+            pass # Fill in using EV_deterministic
         else: #Exercise 2
-            pass # Fill in
+            pass # Fill in using EV_stochastic
         
         # Calculate value of each choice
         value_keep = None # Fill in
         value_replace = None # Fill in
         
-        # Find the maximum value
+        # Find the maximum value across choices
         pass # Fill in
         
         ### Update value and choice
