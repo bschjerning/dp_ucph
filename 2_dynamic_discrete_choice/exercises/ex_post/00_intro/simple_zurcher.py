@@ -53,9 +53,9 @@ def setup():
         
     return par
 
-def solve_VFI(par, vectorized = False, **kwargs):
+def solve_SA(par, vectorized = False, **kwargs):
     """
-    The function `solve_VFI` solves a value function iteration problem
+    The function `solve_SA` performs successive approximations (value function iteration)
     
     Args:
       par: The parameter `par` is an object that contains various parameters
