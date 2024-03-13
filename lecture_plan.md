@@ -19,7 +19,7 @@ Tentative lecture plan is presented below.
 |    | 8  | thu | 29/Feb/24 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf) |
 | 10 | 9  | wed | 06/Mar/24 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf) |
 |    | 10 | thu | 07/Mar/24 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)     |
-| 11 | 11 | wed | 13/Mar/24 | Equilibrium Trade in Automobiles  (continued) <br> Term papers   |
+| 11 | 11 | wed | 13/Mar/24 | Equilibrium Trade in Automobiles  (continued) <br> [Term papers](https://github.com/bschjerning/dp_ucph/blob/main/5_term_paper/term_paper.ipynb)   |
 
 ## [Part III: Structural estimation of models with continuous (and discrete) choices](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)
 | Week | Lecture | Day | Date      | Topic |
