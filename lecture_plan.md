@@ -19,17 +19,17 @@ Tentative lecture plan is presented below.
 |    | 8  | thu | 29/Feb/24 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf) |
 | 10 | 9  | wed | 06/Mar/24 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators ](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf) |
 |    | 10 | thu | 07/Mar/24 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)     |
-| 11 | 11 | wed | 13/Mar/24 | TBA    |
-|    | 12 | thu | 14/Mar/24 | TBA             |
+| 11 | 11 | wed | 13/Mar/24 | Equilibrium Trade in Automobiles  (continued) <br> [Term papers](https://github.com/bschjerning/dp_ucph/blob/main/5_term_paper/term_paper.ipynb)   |
 
 ## [Part III: Structural estimation of models with continuous (and discrete) choices](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 12 | 13 | wed | 20/Mar/24 | [The Euler Equation, Time iterations and EGM](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/1_euler_egm.ipynb) |
-|    | 14 | thu | 21/Mar/24 | [Discrete-Continuous Choice Models  (DC-EGM)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/2_dcegm.pdf) | 
-| 13 | 15 | wed | 27/Mar/24 | [More on Stuctural Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/3_struct_est.pdf) [simple code example of SMD]()  |
+| 11    | 12 | thu | 14/Mar/24 | [The Euler Equation, Time iterations and EGM](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/1_euler_egm.ipynb)             |
+| 12 | 13 | wed | 20/Mar/24 | [Discrete-Continuous Choice Models  (DC-EGM)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/2_dcegm.pdf)  |
+|    | 14 | thu | 21/Mar/24 | [More on Stuctural Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/3_struct_est.pdf) [simple code example of SMD]()| 
+| 13 | 15 | wed | 27/Mar/24 |[Empirical application of DC-EGM (Iskhakov and Keane, JoE 2021)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)  |
 |    |    | thu | 28/Mar/24 | Easter: No lecture               |
-| 14 | 16 | wed | 03/Apr/24| [Empirical application of DC-EGM (Iskhakov and Keane, JoE 2021)](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)|
+| 14 | 16 | wed | 03/Apr/24| DP and Machine Learning + Interpolated EGM (Adam/Jakob) |
 
 ## [Part IV: Solving and estimation of dynamic games](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games)	
 | Week | Lecture | Day | Date      | Topic |
