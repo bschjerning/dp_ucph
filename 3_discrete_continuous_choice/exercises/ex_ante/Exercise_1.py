@@ -74,7 +74,7 @@ def solve_ti(par):
 def euler_error_func(c,t,par,sol):
     
     #Find next period's assets
-    m_next = #Fill in. Hint: create a matrix with state grid points as rows and add the different shocks as columns
+    m_next = None #Fill in. Hint: create a matrix with state grid points as rows and add the different shocks as columns
 
     #Interpolate next period's consumption
     interp = interpolate.interp1d(par.grid_M,sol.C[:,t+1], bounds_error=False, fill_value = "extrapolate") 
@@ -87,7 +87,7 @@ def euler_error_func(c,t,par,sol):
     U_now = marg_util(c,par) 
 
     # Calculate Euler error
-    euler_error = # fill in the Euler error
+    euler_error = None # fill in the Euler error
 
     return euler_error
 
