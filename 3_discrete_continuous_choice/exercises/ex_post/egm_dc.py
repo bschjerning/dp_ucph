@@ -45,6 +45,7 @@ def EGM (sol,z_plus, t,par):
                 # Interpolate consumption and value at the point
                 c_guess = c_raw[i]+c_slope*(m[j]-m_low)
                 v_guess = value_of_choice_worker(m[j],c_guess,t,sol,par)
+                v_guess = v_guess.item() # Convert to scalar to avoid problems with lists of numbers and numpy arrays
                     
                 # If new guess is better than previous guess, replace old guess with new guess
                 # This is where the "zig-zag"-region is cleaned
