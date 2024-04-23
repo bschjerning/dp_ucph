@@ -2,7 +2,7 @@
 import numpy as np
 import tools
 from types import SimpleNamespace
-import egm_dc_multidim as egm
+import egm_dc_multidim_exante as egm
 
 
 class model_dc_multidim():
@@ -61,7 +61,7 @@ class model_dc_multidim():
         par.grid_a = tools.nonlinspace(0+1e-6,par.a_max,par.Na,par.a_phi)
 
         # Cash-on-hand
-        par.grid_m =  np.concatenate([np.linspace(0+1e-6,1-1e-6,par.Nm_b), tools.nonlinspace(1+1e-6,par.m_max,par.Nm-par.Nm_b,par.m_phi)])    # Permanent income
+        par.grid_m =  np.concatenate([np.linspace(0+1e-6,1-1e-6,par.Nm_b), tools.nonlinspace(1+1e-6,par.m_max,par.Nm-par.Nm_b,par.m_phi)])  
 
         # Permanent income
         par.grid_p = tools.nonlinspace(0+1e-4,par.p_max,par.Np,par.p_phi)

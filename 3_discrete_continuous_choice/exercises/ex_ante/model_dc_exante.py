@@ -2,7 +2,7 @@
 import numpy as np
 import tools
 from types import SimpleNamespace
-import egm_dc
+import egm_dc_exante as egm_dc
 
 class model_dc():
 
