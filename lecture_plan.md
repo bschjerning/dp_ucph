@@ -47,4 +47,4 @@ The tentative lecture plan is presented below.
 |    |  | thu | 24/Apr/25 | Submit Project Proposal              |
 | 18 |  | wed | 30/Apr/25 | Research Workshop - day 1 (8 AM - 12 PM)   |
 |    |  | thu | 01/May/25 | Research Workshop - day 2 (8 AM - 12 PM) |
-| 23 |  | Tue | 04/Jun/25 | **Submit Term Paper (10 AM)**        |
+| 23 |  | Tue | 04/Jun/25 | **Submit Term Paper (10 PM)**        |
