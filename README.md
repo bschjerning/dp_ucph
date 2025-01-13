@@ -12,47 +12,36 @@ Plans for [lectures](https://github.com/bschjerning/dp_ucph/blob/main/lecture_pl
 Repository will be updated as we go a along.
 
 ## Content
-### [Part I: Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)                                                   
+### [Part I: Theory and tools](/1_theory_tools)     
+- [Introduction to Markov Decision Processes (MDPs) and Dynamic Programming (DP)](/1_theory_tools/01_dp_intro.ipynb)
+- [Numerical Implementation of Simple Deterministic DP Problem: The Cake Eating Problem](/1_theory_tools/02_cake_eating_example.ipynb)
+- [Numerical Integration in 1D](/1_theory_tools/03_deaton_1d_integration.ipynb)
+- [Solving Deaton's Model](/1_theory_tools/03_deaton_1d_integration.ipynb)
+- [Multi-dimensional Integration: Monte Carlo and Quadrature Methods](/1_theory_tools/04_multi_d_integration.ipynb)
+- [Portfolio Choice Example (Part 1): Integration](/1_theory_tools/04a_portfolio_integration.ipynb)
+- [Portfolio Choice Example (Part 2): Optimization](/1_theory_tools/04b_portfolio_optimal.ipynb)
+- [Function Approximation + The Curse of Dimensionality](/1_theory_tools/05_interpolation.ipynb)
 
-1. Introduction to Markov Decisions Processes (MDPs) and Dynamic Programming (DP) [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/01_dp_intro.ipynb)
-1. Numerical implementation of simple deterministic DP problem: The cake eating problem [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/02_cake_eating_example.ipynb) 
-1. Deaton's model and 1d Numerical Integration [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/03_deaton_1d_integration.ipynb)
+### [Part II: Structural estimation of dynamic discrete choice models](/2_dynamic_discrete_choice)
+- [The Nested Fixed Point Algorithm (NFXP)](/2_dynamic_discrete_choice/1_nfxp.pdf)
+- [Constrained Optimization Approaches to Structural Estimation (MPEC)](/2_dynamic_discrete_choice/2_mpec.pdf)
+- [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP Estimators](/2_dynamic_discrete_choice/3_npl.pdf)
+- [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](/2_dynamic_discrete_choice/4_eqbtrade.pdf)
 
-1. Multi-dimensional Integration: Monte Carlo and Quadrature Methods [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04_multi_d_integration.ipynb) [[Video]](https://youtu.be/lyAXNsUG02g)
-    - [Portfolio Choice Example (part 1): Integration](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04a_portfolio_integration.ipynb)
-    - [Portfolio Choice Example (part 2): Optimization](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/04b_portfolio_optimal.ipynb)
-    - [Video](https://www.youtube.com/watch?v=VDvIyrMAKac)
-
-
-1.  Function Approximation [[Notebook]](https://github.com/bschjerning/dp_ucph/blob/main/1_theory_tools/05_interpolation.ipynb)
-
-
-### [Part II: Structural estimation of dynamic discrete choice models](https://github.com/bschjerning/dp_ucph/tree/main/2_dynamic_discrete_choice)                 
-
-1. The Nested Fixed Point Algorithm (NFPX) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/1_nfxp.pdf)
-[[Video 1 - solving Zurcher model]](https://youtu.be/JfFCZhBYgGw) [[Video 2 - estimating Zurcher model]](https://youtu.be/YpCptgY9vzw)                                            
-1. Constrained Optimization Approaches to Structural Estimation (MPEC) [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/2_mpec.pdf)
-[[Video - MPEC vs NFXP]](https://youtu.be/1uuSTLbXyd8)
-
-1. Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP estimators [[Slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/3_npl.pdf)
-[[Video - NPL and CCP]](https://youtu.be/KqQaWuHvYkg)                    
-
-1. Stationary Equilibrium: Equilibrium Trade in Automobile Markets [[slides]](https://github.com/bschjerning/dp_ucph/blob/main/2_dynamic_discrete_choice/4_eqbtrade.pdf)            
-
-### Part III: Structural estimation of models with continuous (and discrete) choices
-
-1. The Buffer-Stock Consumption-Savings Model
-1. Estimating the Buffer-Stock Model          
-1. Discrete-Continuous Choice Models          
-1. General Equilibrium                        
-
-### Part IV: Solving and estimation of dynamic games**				
-
-1. Solving and estimating static games of incomplete information                          
-1. Structural Estimation of Dynamic Games using MPEC, NPL and 2-step-PML                  
-1. Solving  and estimating directional dynamic games with multiple equilibria using RLS  
-1. Easter: No lecture                                                                     
-1. Solving  and estimating directional dynamic games with multiple equilibria using RLS   
+       
+### [Part III: Structural estimation of models with continuous (and discrete) choices](/3_discrete_continuous_choice)     
+- [The Euler Equation, Time Iterations and EGM](/3_discrete_continuous_choice/1_euler_egm.ipynb)
+- [Discrete-Continuous Choice Models (DC-EGM)](/3_discrete_continuous_choice/2_dcegm.pdf)
+- [More on Structural Estimation](/3_discrete_continuous_choice/3_struct_est.pdf)
+- [Simple Code Example of SMD]()
+- [Empirical Application of DC-EGM (Iskhakov and Keane, JoE 2021)](/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)
+             
+### [Part IV: Solving and estimation of dynamic games](/4_dynamic_games)
+- [Solving and Estimating Static Games of Incomplete Information](/4_dynamic_games/1_StaticGames.pdf)
+- [Structural Estimation of Dynamic Games Using MPEC, NPL and 2-step-PML](/4_dynamic_games/2_DynamicGames.pdf)
+- [Solving Directional Dynamic Games with Multiple Equilibria Using RLS](/4_dynamic_games/3_rls.pdf)
+- [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf)
+				
 
 
 
