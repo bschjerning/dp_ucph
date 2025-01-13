@@ -1,7 +1,9 @@
+
+#%%
 import numpy as np
 from sgame import *
 import matplotlib.pyplot as plt
-
+#%%
 # create instance of sgame model object
 model=sgame(alpha=5, beta=-11, x_a=0.01, x_b=0.01)
 
@@ -18,28 +20,6 @@ model.plt_br()
 model.plt_2br()
 
 plt.show()
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-quit()
-
-
-
-
 
 # simulate data
 model.esr=1

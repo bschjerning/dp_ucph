@@ -43,7 +43,7 @@ ax=[]; %place for plot axes handle
 if (~autoplay);
  fprintf('Welcome to the leapfrogging game!\nYou are firm 2, your cost is c2.\nFirm 1 cost is c1 and state of the art cost is c\n\n');
  if ismac && voice
-  !say Welcome to the leapfrogging game
+  !say "Welcome to the leapfrogging game"
  end
 end;
 
@@ -428,7 +428,7 @@ while (stage > 0);
      fprintf('\n *** Technological innovation c=%g -> c=%g\n     Investment cost to acquire this new technology: %g\n',...
      c,cgrid(newstage),kv);
      if ismac && voice && ~deterministic_onestep
-      !say Technological innovation
+      !say "Technological innovation"
      end
      c=cgrid(newstage);
      stage=newstage;
@@ -460,17 +460,17 @@ else;
   if cumprof1>cumprof2
     fprintf('Firm 1 wins!\n')
      if ismac && voice
-      !say Game over. You lost. Is your investment strategy really a Markov Perfect Equilibrium? Please try to use RLS to solve this game! 
+      !say "Game over. You lost. Is your investment strategy really a Markov Perfect Equilibrium? Please take a course in Dynamic Programming and try to use Recursive Lexicographical Search to solve this game!" 
      end
   elseif cumprof1<cumprof2
-    fprintf('GOOOOAAAAAL, you are the winner. You are a better businessman than the Donald!\n');
+    fprintf('GOOOOAAAAAL, you are the winner. You are a better businessman than Donald Trump!\n');
      if ismac && voice
-      !say Game Over. You Won. You are a better businessman than Donald Trump!
+      !say "Game Over. You Won. You are a better businessman than Donald Trump!"
      end
   elseif cumprof1==cumprof2
     fprintf('No clear winner\n');
      if ismac && voice
-      !say Game over. No clear winner. 
+      !say "Game over. No clear winner." 
      end
    end
   % fprintf('Cumulative profits firm 1: %g\nYour cumulative profits (as firm 2): %g\n',cumprof1,cumprof2);

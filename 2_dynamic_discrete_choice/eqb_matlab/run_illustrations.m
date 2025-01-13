@@ -15,12 +15,14 @@ mp = setparams.default(); % parameters used for illustration
 mp.ntypes = 2;
 mp.ncartypes=1; % switch to 1 car type
 mp.lbl_cartypes = {' '}; % no label for the only car
-s = trmodel.index(mp);
-
+mp.tw=[0.2;0.8];
 % 1. Low transaction cost
 % 1.a set parameters
 mp.transcost = 0;
 mp = trmodel.update_mp(mp); % update parameters
+
+% create state and decicion indexin
+s = trmodel.index(mp);
 
 % 1.b solve model
 [sol]=equilibrium.solve(mp, s); % solve model in baseline

@@ -5,7 +5,7 @@ m=model_deaton %create the model objects
 % m=model_phelps %create the model objects
 
 %% Solve the model with VFI
-if 0
+if 1
   fprintf('\nSolving %s with value function iterations:\n',m.label)
   tic
   m.solve_vfi;
@@ -17,7 +17,7 @@ end
 
 %% Solve the model with EGM
 if 0
-  K=1;
+  K=1000;
   fprintf('\nSolving %s with EGM %d times:\n',m.label,K)
   tic
   for i=1:K
@@ -50,9 +50,9 @@ if 0
   m.solve_egm;
   m.sim;
   m.plot('sim consumption');
-%  m.solve_vfi;
-%  m.sim;
-%  m.plot('sim consumption');
+  % m.solve_vfi;
+  % m.sim;
+  % m.plot('sim consumption');
 end
 %%
 
