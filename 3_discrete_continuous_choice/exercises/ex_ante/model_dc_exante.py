@@ -2,7 +2,7 @@
 import numpy as np
 import tools
 from types import SimpleNamespace
-import egm_dc
+import egm_dc_exante as egm_dc
 
 class model_dc():
 
@@ -86,7 +86,7 @@ class model_dc():
                 # EGM-step
                 m,c,v = egm_dc.EGM(sol,z_plus,t,par)   
 
-                # Add points at the constraints - we add points at the bottom to better approximate the curvature in the
+                # Add points at the constraints - we add points at the bottom to better approximate the curvature in the value function
                 
                 #  Consume everything in credit constrained region
                 m_con = np.linspace(0+1e-8,m[0]-1e-8,par.N_bottom)

@@ -13,9 +13,11 @@ def EGM (sol,z_plus, t,par):
 
 
     # Find raw consumption, cash-on-hand and value using standard EGM using the expectations found above
-    c_raw = inv_marg_util(par.beta*par.R*avg_marg_u_plus,par)
-    m_raw = c_raw + par.grid_a
-    v_raw = util(c_raw,z_plus,par) + par.beta * w_raw
+    c_raw = None
+    m_raw = None
+    v_raw = None
+    raise NotImplementedError("Insert code to run this function")
+    
 
     # UPPER ENVELOPE: Clean the consumption and value functions for sub-optimal choices
 
@@ -45,6 +47,7 @@ def EGM (sol,z_plus, t,par):
                 # Interpolate consumption and value at the point
                 c_guess = c_raw[i]+c_slope*(m[j]-m_low)
                 v_guess = value_of_choice_worker(m[j],c_guess,t,sol,par)
+                v_guess = v_guess.item() # Convert to scalar to avoid problems with lists of numbers and numpy arrays
                     
                 # If new guess is better than previous guess, replace old guess with new guess
                 # This is where the "zig-zag"-region is cleaned
