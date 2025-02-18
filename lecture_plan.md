@@ -8,8 +8,8 @@ The tentative lecture plan is presented below.
 | 6    | 1       | wed | 05/Feb/25 | [Introduction to Markov Decision Processes (MDPs) and Dynamic Programming (DP)](/1_theory_tools/01_dp_intro.ipynb)                          |
 |      | 2       | thu | 06/Feb/25 | [Numerical Implementation of Simple Deterministic DP Problem: The Cake Eating Problem](/1_theory_tools/02_cake_eating_example.ipynb)  |
 | 7    | 3       | wed | 12/Feb/25 | [Numerical Integration in 1D](/1_theory_tools/03_deaton_1d_integration.ipynb)    |  
-|      | 4       | thu | 13/Feb/25 | [Solving Deaton's Model](/1_theory_tools/03_deaton_1d_integration.ipynb)    |  
-| 8    | 5       | wed | 19/Feb/25 | [Multi-dimensional Integration: Monte Carlo and Quadrature Methods](/1_theory_tools/04_multi_d_integration.ipynb)  <br> [Portfolio Choice Example (Part 1): Integration](/1_theory_tools/04a_portfolio_integration.ipynb)<br> [Portfolio Choice Example (Part 2): Optimization](/1_theory_tools/04b_portfolio_optimal.ipynb)| 
+|      | 4       | thu | 13/Feb/25 |  [Multi-dimensional Integration: Monte Carlo and Quadrature Methods](/1_theory_tools/04_multi_d_integration.ipynb)  <br> [Portfolio Choice Example (Part 1): Integration](/1_theory_tools/04a_portfolio_integration.ipynb)<br> [Portfolio Choice Example (Part 2): Optimization](/1_theory_tools/04b_portfolio_optimal.ipynb)  |  
+| 8    | 5       | wed | 19/Feb/25 | [Multi-dimensional choices and integration: Dynamic Portfolio Choice](/1_theory_tools/04c_dynamic_portfolio.ipynb) | 
 |      | 6       | thu | 20/Feb/25 |   [Function Approximation + The Curse of Dimensionality](/1_theory_tools/05_interpolation.ipynb) <br> [Some Info on Term Papers](/5_term_paper/term_paper.ipynb) |
 
 ## [Part II: Structural Estimation of Dynamic Discrete Choice Models](https://github.com/bschjerning/dp_ucph/tree/main/2_dynamic_discrete_choice)      
