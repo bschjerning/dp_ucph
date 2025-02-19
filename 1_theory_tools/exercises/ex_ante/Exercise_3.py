@@ -21,12 +21,14 @@ def solve_consumption_grid_search(par):
     while (par.max_iter>= it and par.tol<delta):
         it = it+1
         V_next = sol.V.copy()
-        for iw,w in enumerate(grid_W):  # enumerate automaticcaly unpack w
-                                        # Fill in  
-                                        # Hint: For each w create a consumption grid, c, using grid_C.
-                                        #       Use c to calculate V_guess using interpolation
-                                        #       In order to interpolate use:  np.interp
-                                        #       Proceed as in Exercise_2.py
+        for iw,w in enumerate(grid_W):  
+            # enumerate automaticcaly unpack w
+            # Fill in  
+            # Hint: For each w create a consumption grid, c, using grid_C.
+            #       Use c to calculate V_guess using interpolation
+            #       In order to interpolate use:  np.interp
+            #       Proceed as in Exercise_2.py
+            
       
         delta = np.amax(np.abs(sol.V - V_next))
     
