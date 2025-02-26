@@ -19,7 +19,6 @@ def setup():
     par.max = 450                    # Max of mileage
 
     # structual parameters
-    par.p = np.array([0.0937, 0.4475, 0.4459, 0.0127])   # Transition probability
     par.RC = 11.7257                                     # Replacement cost
     par.c = 2.45569 * 0.001                              # Cost parameter
     par.beta = 0.99                                    # Discount factor
@@ -31,18 +30,18 @@ def setup():
     # Create grid
     par.grid = np.arange(0,par.n) # milage grid
     
-    # Create transition arrays
+    # Create transition arrays - for exercise 2 and onwards
     par.transition = np.array([0,1,2]) # Transition grid
     par.p = np.array([1/3, 1/3, 1/3]) # Transition probability grid
     
-    # Simulated extreme value taste shocks
+    # Simulated extreme value taste shocks -  for exercise 3 and onwards
     np.random.seed(1987)
     par.num_eps = 10000
     par.sigma_eps = 1.0
     par.eps_keep_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma,scale=par.sigma_eps,size=par.num_eps)
     par.eps_replace_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma, scale=par.sigma_eps,size=par.num_eps)
     
-    # Gaussian taste shocks
+    # Gaussian taste shocks - for exercise 5
     par.eps_keep_norm = np.random.normal(0,1,par.num_eps)
     par.eps_replace_norm = np.random.normal(0,1,par.num_eps)
     
@@ -146,9 +145,9 @@ def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
         
         # Exercise 3
         elif taste_shocks == 'Extreme Value':
-            logsum = (maxV + np.log(np.exp((value_keep-maxV))  +  np.exp((value_replace-maxV))))
+            logsum = (maxV + par.sigma_eps * np.log(np.exp((value_keep-maxV)/par.sigma_eps)  +  np.exp((value_replace-maxV)/par.sigma_eps)))
             V_now[x] = logsum
-            pk[x] = 1/(1+np.exp((value_replace-value_keep))) 
+            pk[x] = np.exp((value_keep-maxV)/par.sigma_eps)/(np.exp((value_keep-maxV)/par.sigma_eps) + np.exp((value_replace-maxV)/par.sigma_eps)) 
         
         # Exercise 4
         elif taste_shocks == 'Monte Carlo Extreme Value':
@@ -270,9 +269,9 @@ def bellman_vector(V_next, par):
     maxV = np.amax([value_keep, value_replace])
     
     # Update value and choice
-    logsum = (maxV + np.log(np.exp(value_keep-maxV)  +  np.exp(value_replace-maxV)))
+    logsum = (maxV + par.sigma_eps * np.log(np.exp((value_keep-maxV)/par.sigma_eps)  +  np.exp((value_replace-maxV)/par.sigma_eps)))
     V_now = logsum
-    pk = 1/(1+np.exp(value_replace-value_keep)) 
+    pk = np.exp((value_keep-maxV)/par.sigma_eps)/(np.exp((value_keep-maxV)/par.sigma_eps) + np.exp((value_replace-maxV)/par.sigma_eps)) 
             
     return V_now, pk
 
@@ -291,22 +290,22 @@ def create_transition_matrix(d, par):
     Returns:
       the transition matrix, which is a numpy array of shape (n, n).
     """
-    p = np.append(par.p,1-np.sum(par.p)) # Get transition probabilities
+    # p = np.append(par.p,1-np.sum(par.p)) # Get transition probabilities
     P = np.zeros((par.n,par.n)) # Initialize transition matrix
     
     if d == 0: # keep
         # Loop over rows
         for i in range(par.n):
             # Check if p vector fits entirely
-            if i <= par.n-len(p):
-                P[i][i:i+len(p)]=p
+            if i <= par.n-len(par.p):
+                P[i][i:i+len(par.p)]=par.p
             else:
-                P[i][i:] = p[:par.n-len(p)-i]
+                P[i][i:] = par.p[:par.n-len(par.p)-i]
                 P[i][-1] = 1.0-P[i][:-1].sum()
 
     if d == 1: # replace
         # Loop over rows
         for i in range(par.n):
-            P[i][:len(p)]=p
+            P[i][:len(par.p)]=par.p
     
     return P

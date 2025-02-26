@@ -19,7 +19,6 @@ def setup():
     par.max = 450                    # Max of mileage
 
     # structual parameters
-    par.p = np.array([0.0937, 0.4475, 0.4459, 0.0127])   # Transition probability
     par.RC = 11.7257                                     # Replacement cost
     par.c = 2.45569 * 0.001                              # Cost parameter
     par.beta = 0.99                                    # Discount factor
@@ -31,18 +30,18 @@ def setup():
     # Create grid
     par.grid = np.arange(0,par.n) # milage grid
     
-    # Create transition arrays
+    # Create transition arrays - for exercise 2 and onwards
     par.transition = np.array([0,1,2]) # Transition grid
     par.p = np.array([1/3, 1/3, 1/3]) # Transition probability grid
     
-    # Simulated extreme value taste shocks
+    # Simulated extreme value taste shocks -  for exercise 3 and onwards
     np.random.seed(1987)
     par.num_eps = 10000
-    par.sigma_eps = 1.0
+    par.sigma_eps = 0.0001
     par.eps_keep_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma,scale=par.sigma_eps,size=par.num_eps)
     par.eps_replace_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma, scale=par.sigma_eps,size=par.num_eps)
     
-    # Gaussian taste shocks
+    # Gaussian taste shocks - for exercise 5
     par.eps_keep_norm = np.random.normal(0,1,par.num_eps)
     par.eps_replace_norm = np.random.normal(0,1,par.num_eps)
     
@@ -66,7 +65,7 @@ def solve_SA(par, vectorized = False, **kwargs):
     Returns:
       an object of the class `sol`, which contains the following attributes:
     - `V`: a numpy array representing the value function
-    - `pk`: a numpy array representing the policy function
+    - `pk`: a numpy array representing the policy function (conditional choice probabilities)
     - `it`: an integer representing the number of iterations performed
     - `delta`: a float representing the difference between the current and previous value functions
     """
@@ -122,27 +121,32 @@ def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
     for  x in par.grid: # Loop over states
             
         # Calculate expected future value across states for each choice
-        if stochastic_transition == False:
-            pass # Fill in using EV_deterministic
+        if stochastic_transition == False: # Exercise 1
+            EV_keep = None # Fill in
+            EV_replace = None # Fill in
         else: #Exercise 2
-            pass # Fill in using EV_stochastic
-        
+            EV_keep = None # Fill in
+            EV_replace = None # Fill in
+
         # Calculate value of each choice
         value_keep = None # Fill in
         value_replace = None # Fill in
         
         # Find the maximum value across choices
-        pass # Fill in
+        maxV = None # Fill in
         
         ### Update value and choice
         
         # Exercise 1
         if taste_shocks == 'None':
-            pass # Fill in
+            V_now[x] = None # Fill in
+            pk[x] = None # Fill in
         
         # Exercise 3
         elif taste_shocks == 'Extreme Value':
-            pass # Fill in
+            V_now[x] = None # Fill in
+            pk[x] = None # Fill in
+            
         
         # Exercise 4
         elif taste_shocks == 'Monte Carlo Extreme Value':
@@ -154,8 +158,8 @@ def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
         
         # Exercise 4
         elif taste_shocks == 'Normal':
-            pass # Fill in
-            
+            V_now[x] = None # Fill in
+            pk[x] = None  # Fill in           
     return V_now, pk
 
 
@@ -267,22 +271,22 @@ def create_transition_matrix(d, par):
     Returns:
       the transition matrix, which is a numpy array of shape (n, n).
     """
-    p = np.append(par.p,1-np.sum(par.p)) # Get transition probabilities
+    # p = np.append(par.p,1-np.sum(par.p)) # Get transition probabilities
     P = np.zeros((par.n,par.n)) # Initialize transition matrix
     
     if d == 0: # keep
         # Loop over rows
         for i in range(par.n):
             # Check if p vector fits entirely
-            if i <= par.n-len(p):
-                P[i][i:i+len(p)]=p
+            if i <= par.n-len(par.p):
+                P[i][i:i+len(par.p)]=par.p
             else:
-                P[i][i:] = p[:par.n-len(p)-i]
+                P[i][i:] = par.p[:par.n-len(par.p)-i]
                 P[i][-1] = 1.0-P[i][:-1].sum()
 
     if d == 1: # replace
         # Loop over rows
         for i in range(par.n):
-            P[i][:len(p)]=p
+            P[i][:len(par.p)]=par.p
     
     return P
