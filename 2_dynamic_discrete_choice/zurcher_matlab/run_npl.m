@@ -48,8 +48,9 @@ switch pk_init
 		disp('Initialize ccps with flexible logit');
 		deg=2; % degree of polynomial in flexible logit
 		x=[ones(N,1) (data.x/mp.n).^1 (data.x/mp.n).^2 (data.x/mp.n).^3 (data.x/mp.n).^4 ]; 
-		xg=[ones(mp.n,1) (mp.grid/mp.n).^1 (mp.grid/mp.n).^2 (mp.grid/mp.n).^3 (mp.grid/mp.n).^4]; 
-		options =  optimset('Algorithm','trust-region','Display','off');
+		xg=[ones(mp.n,1) (mp.grid/mp.n).^1 (mp.grid/mp.n).^2 (mp.grid/mp.n).^3 (mp.grid/mp.n).^4];
+		 
+		options =  optimset('Algorithm','quasi-newton','Display','off');
 		[theta_flex_logit, fval] = fminunc(@(theta) npl.ll_logit(theta, data.d, x(:,1:deg+1)) ,zeros(deg+1,1), options);
 		pk0=1./(1+exp(xg(:,1:deg+1)*theta_flex_logit));
 		fprintf('Specifiction: logit with %d degree polynomial in mileage \n',deg);

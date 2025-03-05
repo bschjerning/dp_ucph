@@ -191,7 +191,6 @@ methods (Static)
       dbellman_dev(:,1)=dbellman_dev(:,1)+mp.beta*P{1}*(1-pk);        
     end
   end % end of zurcher.bellman_ev  
-
     
   function [f,g,h]=ll(data, mp, theta)
     global V0;
