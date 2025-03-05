@@ -143,13 +143,13 @@ def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
             V_now[x] = maxV
             pk[x] = (value_keep > value_replace)
         
-        # Exercise 3
+        # Exercise 4
         elif taste_shocks == 'Extreme Value':
             logsum = (maxV + par.sigma_eps * np.log(np.exp((value_keep-maxV)/par.sigma_eps)  +  np.exp((value_replace-maxV)/par.sigma_eps)))
             V_now[x] = logsum
             pk[x] = np.exp((value_keep-maxV)/par.sigma_eps)/(np.exp((value_keep-maxV)/par.sigma_eps) + np.exp((value_replace-maxV)/par.sigma_eps)) 
         
-        # Exercise 4
+        # Exercise 3
         elif taste_shocks == 'Monte Carlo Extreme Value':
             values = np.column_stack([value_keep + par.eps_keep_gumb, value_replace + par.eps_replace_gumb])
             choices = np.argmax(values, axis = 1)
@@ -157,7 +157,7 @@ def bellman(V_next, par, taste_shocks = 'None', stochastic_transition = False):
             V_now[x] = values[np.arange(par.num_eps), choices].mean()
             pk[x] = 1 - choices.mean()
         
-        # Exercise 4
+        # Exercise 5
         elif taste_shocks == 'Normal':
             values = np.column_stack([value_keep + par.eps_keep_norm, value_replace + par.eps_replace_norm])
             choices = np.argmax(values, axis = 1)
