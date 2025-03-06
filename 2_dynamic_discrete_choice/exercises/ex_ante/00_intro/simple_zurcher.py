@@ -37,7 +37,7 @@ def setup():
     # Simulated extreme value taste shocks -  for exercise 3 and onwards
     np.random.seed(1987)
     par.num_eps = 10000
-    par.sigma_eps = 0.0001
+    par.sigma_eps = 1.0
     par.eps_keep_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma,scale=par.sigma_eps,size=par.num_eps)
     par.eps_replace_gumb = np.random.gumbel(loc=-par.sigma_eps * np.euler_gamma, scale=par.sigma_eps,size=par.num_eps)
     
