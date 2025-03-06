@@ -15,7 +15,7 @@ mp = setparams.default(); % parameters used for illustration
 mp.ntypes = 2;
 mp.ncartypes=1; % switch to 1 car type
 mp.lbl_cartypes = {' '}; % no label for the only car
-mp.tw=[0.2;0.8];
+mp.tw=[0.5;0.5];
 % 1. Low transaction cost
 % 1.a set parameters
 mp.transcost = 0;

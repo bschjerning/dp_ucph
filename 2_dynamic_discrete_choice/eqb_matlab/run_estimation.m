@@ -55,9 +55,10 @@ mp.pscrap_notax=num2cell([mp.pnew{:}].*car.beta(car.age==0)'.^ [mp.abar_j0{:}]);
 mp = trmodel.setparams(mp);
 
 %% estimate model
-[mp_mle, theta_mle, Avar_mle, sol_mle, pvec0_mle] = estim.mle(mp, s, dta, {'bhhh','bhhh','bhhh'}, [20,20,10]);
+[mp_mle, theta_mle, Avar_mle, sol_mle, pvec0_mle] = estim.mle(mp, s, dta, {'bhhh','bhhh'}, [15,15]);
 save('results/estimation/mle_step1.mat', 'mp_mle', 'sol_mle', 'Avar_mle')
 
+return
 %% STEP 2: Run again using different algorithms with estimates from STEP 1 as starting values
 % We only do this to see if there are any futher improvements in likelihood. 
 % Step 2 takes some additional time, and only gives a minor imporve in the mean likelihood at the 4 digit. 
