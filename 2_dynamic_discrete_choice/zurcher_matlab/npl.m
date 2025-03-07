@@ -87,7 +87,8 @@ classdef npl
         function [mp, pk, logl, K]=estim(theta0, pk0, data, P, mp, Kmax);  % NPL algorithm for K-PI estimators
             global pk
 
-            options =  optimset('Algorithm','trust-region','Display','off','TolFun',1E-6,'TolX',0);
+            options =  optimset('Algorithm','trust-region','Display','off', 'GradObj','on', 'TolFun',1E-6,'TolX',0,'Hessian','on');
+
             if nargin==5;
                 Kmax=100;
             end
