@@ -18,32 +18,32 @@ The tentative lecture plan is presented below.
 | 9  | 7  | wed | 26/Feb/25 | [The Nested Fixed Point Algorithm (NFXP)](/2_dynamic_discrete_choice/1_nfxp.pdf)|
 |    | 8  | thu | 27/Feb/25 | [Constrained Optimization Approaches to Structural Estimation (MPEC)](/2_dynamic_discrete_choice/2_mpec.pdf) |
 | 10 | 9  | wed | 05/Mar/25 | [Sequential Estimation in Discrete Decision Problems: Nested Pseudo Likelihood (NPL) and CCP Estimators](/2_dynamic_discrete_choice/3_npl.pdf) |
-|    | 10 | thu | 06/Mar/25 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](/2_dynamic_discrete_choice/4_eqbtrade.pdf)     |
-| 11 | 11 | wed | 12/Mar/25 | Buffer  |
+|    | 10 | thu | 06/Mar/25 | [Stationary Equilibrium: Equilibrium Trade in Automobile Markets](/2_dynamic_discrete_choice/4_eqbtrade.pdf) |
 
 ## [Part III: Structural Estimation of Models with Continuous (and Discrete) Choices](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 11    | 12 | thu | 13/Mar/25 | [The Euler Equation, Time Iterations and EGM](/3_discrete_continuous_choice/1_euler_egm.ipynb)             |
-| 12 | 13 | wed | 19/Mar/25 | [Discrete-Continuous Choice Models (DC-EGM)](/3_discrete_continuous_choice/2_dcegm.pdf)  |
-|    | 14 | thu | 20/Mar/25 | [More on Structural Estimation](/3_discrete_continuous_choice/3_struct_est.pdf) [Simple Code Example of SMD]()| 
-| 13 | 15 | wed | 26/Mar/25 |[Empirical Application of DC-EGM (Iskhakov and Keane, JoE 2021)](/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)  |
-|    |    | thu | 27/Mar/25 | DP and Machine Learning (Jakob)                |
+| 11 | 11 | wed | 12/Mar/25 | [The Euler Equation, Time Iterations and EGM](/3_discrete_continuous_choice/1_euler_egm.ipynb)             |
+|    | 12 | thu | 13/Mar/25 | [Discrete-Continuous Choice Models (DC-EGM)](/3_discrete_continuous_choice/2_dcegm.pdf)  |
+| 12 | 13 | wed | 19/Mar/25 | [More on Structural Estimation](/3_discrete_continuous_choice/3_struct_est.pdf) [Simple Code Example of SMD]()| 
+|    | 14 | thu | 20/Mar/25 | [Empirical Application of DC-EGM (Iskhakov and Keane, JoE 2021)](/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)  |
 
 ## [Part IV: Solving and Estimation of Dynamic Games](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games)	
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 14 | 16 | wed | 02/Apr/25 | [Solving and Estimating Static Games of Incomplete Information](/4_dynamic_games/1_StaticGames.pdf)  |
-|  | 17 | thu | 03/Apr/25 | [Structural Estimation of Dynamic Games Using MPEC, NPL and 2-step-PML](/4_dynamic_games/2_DynamicGames.pdf)  |
-| 15 | 19 | wed | 09/Apr/25 | [Solving Directional Dynamic Games with Multiple Equilibria Using RLS](/4_dynamic_games/3_rls.pdf)  |
-|    |    | thu | 10/Apr/25 | [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf)   |
+| 13 | 15 | wed | 26/Mar/25 | [Solving and Estimating Static Games of Incomplete Information](/4_dynamic_games/1_StaticGames.pdf)  |
+|    | 16 | thu | 27/Mar/25 | [Structural Estimation of Dynamic Games Using MPEC, NPL and 2-step-PML](/4_dynamic_games/2_DynamicGames.pdf)  |
+| 14 | 17 | wed | 02/Apr/25 | [Solving Directional Dynamic Games with Multiple Equilibria Using RLS](/4_dynamic_games/3_rls.pdf)  |
+|    | 18 | thu | 03/Apr/25 | [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf)   |
+| 15 | 19 | wed | 09/Apr/25 | DP and Machine Learning (Jakob) |
 
 ## [Part V: Work on Research Papers](https://github.com/bschjerning/dp_ucph/tree/main/5_term_paper)
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
-| 16 | 20 | wed | 16/Apr/25 | [Ideas for Term Papers](/5_term_paper/term_paper.ipynb)  |
-|    |    | thu | 17/Apr/25 | No Lecture (Easter)                            |
-| 17 |  | wed | 23/Apr/25 | No Lecture                            |
+| 15 |  | Thu | 10/Apr/25 | [Ideas for Term Papers](/5_term_paper/term_paper.ipynb)  |
+| 16 | 20 | wed | 16/Apr/25 | No Lecture |
+|    |    | thu | 17/Apr/25 | No Lecture (Easter) |
+| 17 |  | wed | 23/Apr/25 | No Lecture  |
 |    |  | thu | 24/Apr/25 | Submit Project Proposal              |
 | 18 |  | wed | 30/Apr/25 | Research Workshop - day 1 (8 AM - 12 PM)   |
 |    |  | thu | 01/May/25 | Research Workshop - day 2 (8 AM - 12 PM) |
