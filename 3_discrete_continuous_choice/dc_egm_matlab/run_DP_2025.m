@@ -1,4 +1,4 @@
-% This script runs Matlab assignments from the lecture on EGM and DC-EGM
+%% This script runs Matlab assignments from the lecture on EGM and DC-EGM
 addpath('utils');
 
 m=model_deaton %create the model objects
@@ -43,6 +43,8 @@ end
 
 %% Simulate flat consumption paths
 if 0
+  %m.Tbar=50
+  %m.ngridm=100
   m.df=1/(1+m.r);
   m.sigma=0;
   m.init=[30 35];
@@ -50,9 +52,9 @@ if 0
   m.solve_egm;
   m.sim;
   m.plot('sim consumption');
-  % m.solve_vfi;
-  % m.sim;
-  % m.plot('sim consumption');
+  m.solve_vfi;
+  m.sim;
+  m.plot('sim consumption');
 end
 %%
 
@@ -91,6 +93,8 @@ end
 
 %% Retirement model with taste shocks
 if 0
+  m2=model_retirement;
+
   m2.sigma=0.35;
   m2.lambda=0.2; %some EV taste shocks
   tic
