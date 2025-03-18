@@ -184,16 +184,17 @@ class zurcher():
 
         # Outputs    
         # pp: Pr{x} (Equilibrium distribution of mileage)
-        # pp_K: Pr{x,i=Keep}
+        # pp_K: Pr{x.i=Keep}
         # pp_R: Pr{x,i=Replace}
-        tmp =self.P1[:,1:self.n] * pk[1:self.n]
-        pl = np.hstack(((1-np.sum(tmp,1,keepdims=True)), tmp)) 
+        pl = self.P1 * pk[:,None] + self.P2 * (1 - pk[:,None])
 
         pp = self.ergodic(pl)
 
-        pp_K = pp.copy()    
-        pp_K[0] = self.p[0]*pp[0]*pk[0]
-        pp_R = (1-pk)*pp
+        # joint probabilities
+        # a. joint probability of x and i=keep
+        pp_K = pk * pp
+        # b. joint probability of x and i=replace
+        pp_R = (1 - pk) * pp
 
         return pp, pp_K, pp_R
 
