@@ -10,7 +10,7 @@ global output;
 alpha = 5; beta = -11; x_a = 0.52; x_b = 0.22;
 % beta=-1; % unique uequilibrium
 % x_a=.5; x_b=.5; % symetric firms
-sigma = 0.01; % scale iid. extreme value error
+sigma = 1; % scale iid. extreme value error
 
 
 x_a = x_a / sigma;
