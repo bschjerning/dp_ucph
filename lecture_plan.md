@@ -33,8 +33,8 @@ The tentative lecture plan is presented below.
 |------|---------|-----|-----------|------------------------------------------------------|
 | 13 | 15 | wed | 26/Mar/25 | [Solving and Estimating Static Games of Incomplete Information](/4_dynamic_games/1_StaticGames.pdf)  |
 |    | 16 | thu | 27/Mar/25 | [Structural Estimation of Dynamic Games Using MPEC, NPL and 2-step-PML](/4_dynamic_games/2_DynamicGames.pdf)  |
-| 14 | 17 | wed | 02/Apr/25 | [Solving Directional Dynamic Games with Multiple Equilibria Using RLS](/4_dynamic_games/3_rls.pdf)  |
-|    | 18 | thu | 03/Apr/25 | [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf)   |
+| 14 | 17 | wed | 02/Apr/25 | [Solving Directional Dynamic Games with Multiple Equilibria Using RLS (skipped)](/4_dynamic_games/3_rls.pdf) <br> [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf)  |
+|    | 18 | thu | 03/Apr/25 |  No Lecture  |
 | 15 | 19 | wed | 09/Apr/25 | DP and Machine Learning (Jakob) |
 
 ## [Part V: Work on Research Papers](https://github.com/bschjerning/dp_ucph/tree/main/5_term_paper)
