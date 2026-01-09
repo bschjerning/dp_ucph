@@ -41,8 +41,8 @@ The tentative lecture plan is presented below.
 | Week | Lecture | Day | Date      | Topic |
 |------|---------|-----|-----------|------------------------------------------------------|
 | 15 |  | Thu | 09/Apr/26 | [Ideas for Term Papers](/5_term_paper/term_paper.ipynb)  |
-| 16 | 20 | wed | 15/Apr/26 | No Lecture |
-|    |    | thu | 16/Apr/26 | No Lecture (Easter) |
+| 16 |  | wed | 15/Apr/26 | No Lecture |
+|    |    | thu | 16/Apr/26 | No Lecture |
 | 17 |  | wed | 22/Apr/26 | No Lecture  |
 |    |  | thu | 23/Apr/26 | Submit Project Proposal              |
 | 18 |  | wed | 29/Apr/26 | Research Workshop - day 1 (8 AM - 12 PM)   |
