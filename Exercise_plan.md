@@ -1,6 +1,5 @@
-# Exercise plan 2025
+# Exercise plan 2026
 
-  
 
 ## [Part I: Theory and tools](https://github.com/bschjerning/dp_ucph/tree/main/1_theory_tools)                                                      
 
@@ -37,13 +36,14 @@
   
   
 
-## [Part 3: Discrete-Continuous Choice](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)                                                      
+## [Part 3: Discrete-Continuous Choice](https://github.com/bschjerning/dp_ucph/tree/main/3_discrete_continuous_choice)
 
-| Week | TA |Exercise | Topic | New Method| Additional files |
-|------| ---|----------|-------|-------|------------------|
-|14      | Mikkel | 1        | [Deaton model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/01_time_iteration.ipynb)   | Time iterations | [Exercise_1.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_1.py)      |
-|      | | 2        | [Deaton model - EGM](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/02_EGM.ipynb) | EGM | [Exercise_2.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_2.py) |
-| 15 |   Mikkel |3        | [Buffer-stock model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb)   | -      | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py)                 |
-|      | | 4        | [Buffer-stock model - Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb)      |Estimating continuous choice with MLE and MSM       |   [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py), [estimate_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/estimate_exante.py)               |
-| 16 | Easter  - No exercises | ---- | ---- | ---- | ---- |
-| 17   |  Mikkel | 5        | [Retirement model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/05_dc_egm.ipynb)   | DC-EGM | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_dc_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_dc_exante.py)                 |
+| Week | TA | Exercise | Topic | New Method | Additional files |
+|------|----|----------|-------|------------|------------------|
+| 14 | Easter – No exercises | ---- | ---- | ---- | ---- |
+| 15 | Mikkel | 1 | [Deaton model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/01_time_iteration.ipynb) | Time iterations | [Exercise_1.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_1.py) |
+|    |        | 2 | [Deaton model - EGM](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/02_EGM.ipynb) | EGM | [Exercise_2.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/Exercise_2.py) |
+| 16 | Mikkel | 3 | [Buffer-stock model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb) | - | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py) |
+|    |        | 4 | [Buffer-stock model - Estimation](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/03_buffer_stock_egm.ipynb) | Estimating continuous choice with MLE and MSM | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_exante.py), [estimate_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/estimate_exante.py) |
+| 17 | Mikkel | 5 | [Retirement model](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/05_dc_egm.ipynb) | DC-EGM | [tools.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/tools.py), [model_dc_exante.py](https://github.com/bschjerning/dp_ucph/blob/main/3_discrete_continuous_choice/exercises/ex_ante/model_dc_exante.py) |
+
