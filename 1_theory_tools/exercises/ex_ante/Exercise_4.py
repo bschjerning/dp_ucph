@@ -2,20 +2,22 @@
 import numpy as np
 
 def solve_consumption_uncertainty(par):
-     # initialize solution class
+
+    # 1. initialize solution class and allocate memory
     class sol: pass
-    sol.V = np.zeros([par.num_W,par.T]) 
-    sol.C = np.zeros([par.num_W,par.T])
-    sol.grid_W = np.zeros([par.num_W,par.T])
+    sol.V = np.zeros([par.num_W,par.T]) + np.nan
+    sol.C = np.zeros([par.num_W,par.T]) + np.nan
+    sol.grid_W = np.zeros([par.num_W,par.T]) + np.nan
     
-    # consumption grid as a share of available resources
+    # 2. define consumption "guess" grid as a share of available resources
     grid_C = np.linspace(0.0,1.0,par.num_C)
     
-    # Loop over periods
-    for t in range(par.T-1, -1, -1):  #from period T-1, until period 0, backwards
-        # Maximum cake size grows as t grows due to shocks so  grid depends on t 
-        W_max = max(par.eps)*t+par.W 
-        grid_W = np.linspace(0,W_max,par.num_W) 
+    # 3. Backwards Induction: Loop over periods
+    for t in reversed(range(par.T)):  #from period T-1, until period 0, backwards
+
+        # let grid for W depend on the maximum attainable cake size in period
+        W_max = max(par.eps)*t+par.W # maxmium cake size is expanding over t
+        grid_W = np.linspace(0,W_max,par.num_W)
         sol.grid_W[:,t] = grid_W 
     
         for iw,w in enumerate(grid_W):
@@ -23,12 +25,16 @@ def solve_consumption_uncertainty(par):
             w_c = w - c
             EV_next = 0
         
-            if t<par.T-1:
+            if t<par.T-1: # no EV_next in last period
+                pass # delete this, just there to make import work with no code in loop
                 
-                #Fill in
-                # Hint: Loop through shocks
-                #       Interpolate value function for each shock
-                #       Add weighted contribution to expectation
+                # FILL IN.
+                # Hint: 1) Loop through shock probability and values, e.g. by using the zip function
+                #       2) Interpolate value function for the new state given each shock
+                #       3) Add probability-weighted contribution to expectation
+
+
+
                 
             V_guess = np.sqrt(c)+par.beta*EV_next
             index = np.argmax(V_guess)

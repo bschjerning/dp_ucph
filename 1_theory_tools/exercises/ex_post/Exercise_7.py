@@ -4,7 +4,8 @@ import tools as tools
 from scipy import interpolate
 
 def setup():
-    # Setup specifications in class. 
+
+    # setup specifications in class.
     class par: pass
     par.beta = 0.90
     par.rho = 0.5
@@ -13,18 +14,18 @@ def setup():
     par.mu = 0
     par.W = 10
     
-    # Shocks and weights
+    # shocks and weights
     par.num_shocks = 5
     x,w = tools.gauss_hermite(par.num_shocks)
     par.eps = np.exp(par.sigma*np.sqrt(2)*x)
     par.eps_w = w/np.sqrt(np.pi)
     
-    # Grid
+    # grids
     par.num_W = 200
     par.num_C = 200
     par.grid_W = np.linspace(0,par.W,par.num_W)
     
-    # Parameters for VFI
+    # parameters for VFI
     par.max_iter = 200   # maximum number of iterations
     par.tol = 10e-2 #convergence tol. level 
         
@@ -35,42 +36,51 @@ def util(c,par):
     return (c**(1.0-par.rho))/(1.0-par.rho)
 
 def solve_deaton_infty(par):
-     # initialize solution class
+
+    # 1. initialize solution class
     class sol: pass
-    sol.V = np.zeros([par.num_W]) 
-    sol.C = np.zeros([par.num_W])
+
+    # 2. allocate memory
+    sol.V = np.zeros([par.num_W]) # no NaNs here, since this works as our initial value function guess
+    sol.C = np.zeros([par.num_W]) + np.nan
     
-    # consumption grid as a share of available resources
+    # 3. consumption grid as a share of available resources
     grid_C = np.linspace(0.0,1.0,par.num_C)
     
-    # initialize counter
+    # 4. initialize counter and initial convergence error
     sol.it = 0
     sol.delta = 2000
 
-    while (par.max_iter>= sol.it and par.tol<sol.delta):
+    # 5. iterate
+    while (sol.it <= par.max_iter and par.tol < sol.delta):
         
         V0 = sol.V.copy()
-        interp = interpolate.interp1d(par.grid_W,V0, bounds_error=False, fill_value = "extrapolate")
-        
-        for iw,w in enumerate(par.grid_W):
-            c = grid_C*w
-            w_c = w - c
+        # This time we use scipy's interpolate function instead of numpy's
+        # scipy's interpolater allows for (linear) extrapolation outside the grid
+        interp = interpolate.interp1d(par.grid_W, V0, bounds_error=False, fill_value = "extrapolate")
+
+        for iw,w_i in enumerate(par.grid_W):
+            pass # delete this, just there to make import work with no code in loop
+            # FILL IN: Hint: similar to Exercise_6
+
+            ### SOLUTION
+            c = grid_C*w_i
+            w_c = w_i - c
             EV_next = 0
-            
+
             for s in range(par.num_shocks):
-                # weight on the shock 
-                weight = par.eps_w[s]
-                # epsilon shock
-                eps = par.eps[s]
-                # next period assets
-                w_next = par.R*w_c+eps
-                # expected value
-                EV_next +=weight*interp(w_next)
+                
+                eps_i = par.eps[s]
+                eps_w_i = par.eps_w[s] 
+                w_next_i = par.R*w_c+eps_i
+                EV_next += eps_w_i*interp(w_next_i)
+            
             V_guess = util(c,par)+par.beta*EV_next
             index = np.argmax(V_guess)
             sol.C[iw] = c[index]
             sol.V[iw] = np.amax(V_guess)
-        
+            ### SOLUTION
+            
         sol.it += 1
         sol.delta = max(abs(sol.V - V0)) 
     
