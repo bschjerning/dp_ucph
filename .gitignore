@@ -10,7 +10,8 @@
 3_discrete_continuous_choice/z_private_source
 1_euler_egm-checkpoint.ipynb
 3_discrete_continuous_choice/smd/.ipynb_checkpoints
-*.DS_Store
+4_dynamic_games/z_private_repo
+.DS_Store
 *-checkpoint.ipynb
 4_dynamic_games/z_source_not_shared
 2_dynamic_discrete_choice/zurcher_pytnon
