@@ -8,7 +8,7 @@ global output;
 
 % multible equilibria at the the true value of parameters
 alpha = 5; beta = -11; x_a = 0.52; x_b = 0.22;
-% beta=-1; % unique uequilibrium
+% beta=-1; % unique equilibrium
 % x_a=.5; x_b=.5; % symetric firms
 sigma = 1; % scale iid. extreme value error
 

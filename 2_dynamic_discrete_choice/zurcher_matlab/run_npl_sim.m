@@ -11,13 +11,13 @@ bustypes = 4; 	% Select bus types smaller than this number: choose 3 or 4
 mp0.bellman_type='iv';  	% bellman in expected value ('ev') or ('iv') integrated value function space  
 mp0.pnames_u={'RC', 'c'};	% utility parameters to be estimated
 mp0.pnames_P={};         % set mp0.pnames_P={}; to skip estimation of transition parameters  
-
+mp0.c=.58*100
 % Fill out remaining parameters and update parameter dependencies
 mp=zurcher.setup(mp0);
 
 % local constants:
-N=5000;			% Number of busses to simulate 
-T=119;			% Number of time periods to simulate 
+N=10;			% Number of busses to simulate 
+T=100;			% Number of time periods to simulate 
 
 % ************************************
 % section 0: solve model and simulate data
@@ -53,10 +53,10 @@ switch pk_init
 		pk0 = ones(mp.n,1)*pk0;    % Starting values for CCPs
 	case 2
 		disp('Initialize ccps with flexible logit');
-		deg=4; % degree of polynomial 4n flexible logit
+		deg=1; % degree of polynomial 4n flexible logit
 		x=[ones(N*T,1) (data.x/mp.n).^1 (data.x/mp.n).^2 (data.x/mp.n).^3 (data.x/mp.n).^4 ]; 
 		xg=[ones(mp.n,1) (mp.grid/mp.n).^1 (mp.grid/mp.n).^2 (mp.grid/mp.n).^3 (mp.grid/mp.n).^4]; 
-		options =  optimset('Algorithm','trust-region','Display','off');
+		options =  optimset('Algorithm','quasi-newton','Display','off');
 		[theta_flex_logit, fval] = fminunc(@(theta) npl.ll_logit(theta, data.d, x(:,1:deg+1)) ,zeros(deg+1,1), options);
 		pk0=1./(1+exp(xg(:,1:deg+1)*theta_flex_logit));
 		fprintf('Specifiction: logit with %d degree polynomial in mileage \n',deg);

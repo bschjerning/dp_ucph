@@ -5,13 +5,13 @@ clc
 
 % Swiches:
 Kmax=10; 		% Max number of outer loop iterations for NPL 
-bustypes = 4; 	% Select bus types smaller than this number: choose 3 or 4
+bustypes = 3; 	% Select bus types smaller than this number: choose 3 or 4
 
 % Set parameters (values for RC and mp.c will be used as starting values during estimation)
 mp0.bellman_type='iv';  	% bellman in expected value ('ev') or ('iv') integrated value function space  
 mp0.pnames_u={'RC', 'c'};	% utility parameters to be estimated
 mp0.pnames_P={};         % set mp0.pnames_P={}; to skip estimation of transition parameters  
-mp0.bustypes=[1,2,3,4];		% Vector with chosen bus types (elements can be 1,2,3,4) 
+mp0.bustypes=[1,2,3];		% Vector with chosen bus types (elements can be 1,2,3,4) 
 
 % Fill out remaining parameters and update parameter dependencies
 mp=zurcher.setup(mp0);
@@ -46,7 +46,7 @@ switch pk_init
 		pk0 = ones(mp.n,1)*pk0;    % Starting values for CCPs
 	case 2
 		disp('Initialize ccps with flexible logit');
-		deg=2; % degree of polynomial in flexible logit
+		deg=1; % degree of polynomial in flexible logit
 		x=[ones(N,1) (data.x/mp.n).^1 (data.x/mp.n).^2 (data.x/mp.n).^3 (data.x/mp.n).^4 ]; 
 		xg=[ones(mp.n,1) (mp.grid/mp.n).^1 (mp.grid/mp.n).^2 (mp.grid/mp.n).^3 (mp.grid/mp.n).^4];
 		 
@@ -78,6 +78,9 @@ fprintf('\n*********************************************************************
 fprintf('Method: Nested Fixed point algorithm (NFXP)\n')
 fprintf('*************************************************************************\n')
 
+mp0=mp;
+mp0.RC=0;
+mp0.c=0;
 [nfxp_results, theta_hat, Avar]=nfxp.estim(data, mp);
 mphat = output.estimates(mp, [mp.pnames_u mp.pnames_P], theta_hat, Avar);
 fprintf('log-likelihood    = %10.3f \n',nfxp_results.llval);

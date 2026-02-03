@@ -6,7 +6,7 @@ classdef nfxp
       samplesize=numel(data.d);
  
       % set options optimizer options for fminunc      
-      optim_options= optimset('Algorithm','trust-region', 'Display','off', 'GradObj','on', 'TolFun',1E-5,'TolX',1E-6,'Hessian','on');
+      optim_options= optimset('Algorithm','trust-region', 'Display','off', 'GradObj','on', 'TolFun',1E-6,'TolX',1E-6,'Hessian','on');
 
       % **********************************************************************************
       % STEP 1: ESTIMATE state transition matrix using frequency estimator
