@@ -1,12 +1,10 @@
 *******************************************************************************************
-* Functions for Exercise 5 *
+* Functions for Exercise 3 *
 *******************************************************************************************
 
 py-files:
-model_zucher.py: Functions related to the Zurcher model. The function includes the same element as NFXP, and in addition it includes functions called unc_state_transition, psi, phi and lambdaa
-Solve_NFXP.py: Functions related to solving the Dynamic Programming model with NFXP. 
-Estimate_NFXP.py: Functions for estimating the zucher model with NFXP
-NPL.py: Function related to estimating and solving the Zurcher model with NPL
+estimate_NPL.py: Function related to estimating and solving the Zurcher model with NPL
+For the model file and the NFXP algorithm, we import the solutions from 01_02_NFXP, see notebook
 
 ipynb-files:
-05_NPL: Runs the exercise
+03_NPL: Runs the exercise
