@@ -29,10 +29,6 @@ The tentative lecture plan is presented below.
 | 12 | 13 | wed | 19/Mar/26 | [More on Structural Estimation](/3_discrete_continuous_choice/3_struct_est.pdf) [Simple Code Example of SMD]()| 
 |    | 14 | thu | 20/Mar/26 | [Empirical Application of DC-EGM (Iskhakov and Keane, JoE 2021)](/3_discrete_continuous_choice/4_aupens_dc_egm.pdf)  |
 
-## [Part II: Structural Estimation of Dynamic Discrete Choice Models](https://github.com/bschjerning/dp_ucph/tree/main/2_dynamic_discrete_choice)      
-| Week | Lecture | Day | Date      | Topic |
-|------|---------|-----|-----------|------------------------------------------------------|
-
 
 ## [Part IV: Solving and Estimation of Dynamic Games and Equilibrium Models](https://github.com/bschjerning/dp_ucph/tree/main/4_dynamic_games)	
 | Week | Lecture | Day | Date      | Topic |
@@ -55,5 +51,5 @@ The tentative lecture plan is presented below.
 | 18 |  | wed | 29/Apr/26 | Research Workshop - day 1 (8 AM - 12 PM)   |
 |    |  | thu | 30/Apr/26 | Research Workshop - day 2 (8 AM - 12 PM) |
 | 23 |  | Tue | 03/Jun/26 | **Submit Term Paper (10 PM)**        |
-| 23 |  | Thu | 11/Jun/26 | **Exam day 1**        |
+| 23 |  | Wed | 10/Jun/26 | **Exam day 1**        |
 | 23 |  | Tue | 16/Jun/26 | **Exam day 2**        |
