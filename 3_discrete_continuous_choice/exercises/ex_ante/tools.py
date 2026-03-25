@@ -1,5 +1,5 @@
 import numpy as np
-from numba import njit, int64, double, boolean, int32,void
+from numba import njit, int64, double, boolean, int32, void
 import math
 
 # interpolation functions:
