@@ -38,9 +38,9 @@ The tentative lecture plan is presented below.
 | 14 | 17 | wed | 01/Apr/26 |  No Lecture (Easter)|
 |    |  | thu | 02/Apr/26 |  No Lecture (Easter) |
 | 15 |  | wed | 08/Apr/26 |[Solving and Estimating Static Games of Incomplete Information](/4_dynamic_games/1_StaticGames.pdf)   |
-| 15 | 18 | Thu | 09/Apr/26 |  [Structural Estimation of Dynamic Games Using MPEC, NPL and 2-step-PML](/4_dynamic_games/2_DynamicGames.pdf) |
-| 16 |  | wed | 15/Apr/26 | [Solving Directional Dynamic Games with Multiple Equilibria Using RLS (skipped)](/4_dynamic_games/3_rls.pdf) <br> [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf)  |
-|    |  | thu | 16/Apr/26 |Invited Lecture: Dynamic Programming and Reinforcement Learning|
+| 15 | 18 | Thu | 09/Apr/26 |  Invited Lecture: Dynamic Programming and Reinforcement Learning |
+| 16 |  | wed | 15/Apr/26 | [Structural Estimation of Dynamic Games Using MPEC, NPL and 2-step-PML](/4_dynamic_games/2_DynamicGames.pdf) |
+|    |  | thu | 16/Apr/26 | [Solving Directional Dynamic Games with Multiple Equilibria Using RLS (skipped)](/4_dynamic_games/3_rls.pdf) <br> [Estimating Directional Dynamic Games with Multiple Equilibria Using NRLS](/4_dynamic_games/4_nrls.pdf) |
 
 
 ## [Part V: Work on Research Papers](https://github.com/bschjerning/dp_ucph/tree/main/5_term_paper)
